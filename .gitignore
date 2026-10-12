@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.npm-cache
+.verify
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+# Third-party reference material cloned for design guidance
+.agents/awesome-design-md

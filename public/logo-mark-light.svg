@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 68" role="img" aria-label="Pioneer Builders PB mark">
+  <title>Pioneer Builders</title>
+  <path fill="#F5F2EB" fill-rule="evenodd" d="M4 6H28L38 16V30L28 40H14V58H4ZM14 16V30H25L28 27V19L25 16Z"/>
+  <path fill="#F5F2EB" fill-rule="evenodd" d="M42 6H62L70 14V27L65 32L70 37V50L62 58H42ZM52 16V27H59L61 25V18L59 16ZM52 37V48H59L61 46V39L59 37Z"/>
+  <rect x="4" y="62" width="66" height="3.5" fill="#D4AF62"/>
+</svg>
