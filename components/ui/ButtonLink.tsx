@@ -9,9 +9,12 @@ const base =
   "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-300 ease-out active:translate-y-px active:scale-[0.99]";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-gold text-charcoal hover:bg-warm border border-gold hover:border-warm",
-  outline: "border border-warm/40 text-warm hover:border-warm hover:bg-warm hover:text-charcoal",
-  "outline-dark": "border border-charcoal/40 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-warm",
+  primary:
+    "bg-[#111311] text-[#f5f2eb] border border-[#111311] hover:bg-[#705314] hover:border-[#705314] hover:text-[#ffffff] dark:bg-gold dark:text-[#111311] dark:border-gold dark:hover:bg-[#f5f2eb] dark:hover:border-[#f5f2eb] dark:hover:text-[#111311]",
+  outline:
+    "border border-warm/40 text-warm hover:border-warm hover:bg-[#111311] hover:text-[#f5f2eb] dark:hover:bg-warm dark:hover:text-[#111311]",
+  "outline-dark":
+    "border border-warm/60 text-warm hover:border-warm hover:bg-[#111311] hover:text-[#f5f2eb] dark:hover:bg-warm dark:hover:text-[#111311]",
   ghost: "text-warm hover:text-gold px-0",
 };
 

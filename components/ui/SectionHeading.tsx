@@ -19,20 +19,20 @@ export function SectionHeading({ title, eyebrow, children, tone = "dark", classN
       {eyebrow && (
         <p
           data-reveal
-          className={cn("eyebrow mb-5 flex items-center gap-4", tone === "dark" ? "text-gold" : "text-forest")}
+          className={cn("eyebrow mb-5 flex items-center gap-4", tone === "dark" ? "text-gold" : "text-forest-accent")}
         >
           <span aria-hidden className="h-px w-10 bg-current" />
           {eyebrow}
         </p>
       )}
-      <Tag data-reveal data-delay={eyebrow ? 0.08 : 0} className={cn("display-h2", tone === "dark" ? "text-warm" : "text-charcoal")}>
+      <Tag data-reveal data-delay={eyebrow ? 0.08 : 0} className={cn("display-h2 text-warm")}>
         {title}
       </Tag>
       {children && (
         <div
           data-reveal
           data-delay={0.16}
-          className={cn("mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed", tone === "dark" ? "text-warm/72" : "text-charcoal/75")}
+          className={cn("mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-warm/75")}
         >
           {children}
         </div>

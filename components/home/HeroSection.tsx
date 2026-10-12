@@ -81,7 +81,7 @@ export function HeroSection() {
 
           <h1
             data-hero-in
-            className="display-hero text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-warm leading-[0.98]"
+            className="display-hero text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-warm leading-[0.98]"
           >
             BUILDING WITH EXPERIENCE.
             <br />
@@ -112,8 +112,8 @@ export function HeroSection() {
 
       {/* Bottom Architectural Anchor Strip */}
       <div className="relative z-10 border-t border-warm/15 bg-charcoal/80 backdrop-blur-sm">
-        <div className="container-x py-4 sm:py-5 flex flex-wrap items-center justify-between gap-4 text-xs tracking-wider text-concrete">
-          <div className="flex items-center gap-6">
+        <div className="container-x py-3 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs tracking-wider text-concrete">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="flex items-center gap-2 font-semibold uppercase text-gold">
               <span className="size-2 rounded-full bg-forest animate-pulse" aria-hidden />
               HQ Bangalore
@@ -121,8 +121,8 @@ export function HeroSection() {
             <span className="hidden sm:inline text-warm/40">•</span>
             <span className="hidden sm:inline uppercase text-concrete">Civil Engineering Excellence</span>
           </div>
-          <div className="flex items-center gap-6">
-            <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-[#d96677] dark:text-[#f3a4af]">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-cherry-accent">
               <span className="size-1.5 rounded-full bg-cherry" aria-hidden />
               Est. {company.established}
             </span>

@@ -32,6 +32,9 @@
   :root {
     --hero-sky-from: #161a16;
     --elevation-ink: #f5f2eb;
+    --color-cherry-accent: #f87171;
+    --color-forest-accent: #4ade80;
+    --color-concrete: #9ca098;
     color-scheme: dark;
   }
 
@@ -40,16 +43,16 @@
     --color-charcoal: #fbfbf9;
     --color-charcoal-2: #ffffff;
     --color-charcoal-3: #f0ede6;
-    --color-gold: #8a6d2c;
-    --color-gold-deep: #6f5520;
+    --color-gold: #705314;
+    --color-gold-deep: #523b0a;
     --color-cherry: #8b1e2d;
     --color-cherry-accent: #8b1e2d;
     --color-forest: #1d4938;
-    --color-forest-accent: #1d4938;
-    --color-concrete: #5d605b;
-    --color-concrete-dim: #737670;
+    --color-forest-accent: #15452f;
+    --color-concrete: #2e302d;
+    --color-concrete-dim: #50534d;
     --color-warm: #111311;
-    --color-warm-2: #202420;
+    --color-warm-2: #242623;
     --hero-sky-from: #edebe4;
     --elevation-ink: #111311;
     color-scheme: light;

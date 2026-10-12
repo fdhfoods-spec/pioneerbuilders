@@ -52,19 +52,19 @@ interface LogoProps {
 
 /** Mark + HTML wordmark (uses the site's display font) + "SINCE 1987". */
 export function Logo({ className, tone = "auto", markOnly = false }: LogoProps): ReactNode {
-  const text = tone === "dark" ? "text-charcoal" : "text-warm";
+  const text = tone === "dark" ? "text-[#111311]" : tone === "light" ? "text-[#f5f2eb]" : "text-warm";
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
+    <span className={cn("inline-flex items-center gap-2 sm:gap-3", className)}>
       <LogoMark tone={tone} />
       {!markOnly && (
         <span className="flex flex-col leading-none">
           <span
-            className={cn("font-display text-[1.05rem] font-bold uppercase tracking-[0.06em]", text)}
+            className={cn("font-display text-[0.92rem] sm:text-[1.05rem] font-bold uppercase tracking-[0.05em] sm:tracking-[0.06em]", text)}
             style={{ fontVariationSettings: '"wdth" 112' }}
           >
             Pioneer Builders
           </span>
-          <span className="mt-1.5 flex items-center text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-gold">
+          <span className="mt-1 flex items-center text-[0.6rem] sm:text-[0.62rem] font-semibold uppercase tracking-[0.28em] sm:tracking-[0.34em] text-gold">
             <span className="inline-block size-1.5 rounded-full bg-cherry mr-1.5 shrink-0" aria-hidden />
             Since 1987
           </span>

@@ -22,8 +22,8 @@ export function ProjectGrid() {
           onClick={() => setSelectedCategory("all")}
           className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer border ${
             selectedCategory === "all"
-              ? "border-gold bg-gold text-charcoal"
-              : "border-warm/20 text-warm/75 hover:border-warm/50 hover:text-warm"
+              ? "border-[#111311] bg-[#111311] text-[#fbfbf9] dark:border-gold dark:bg-gold dark:text-[#111311]"
+              : "border-warm/25 text-warm/80 hover:border-warm/60 hover:text-warm"
           }`}
         >
           All Categories ({projects.length})
@@ -43,8 +43,8 @@ export function ProjectGrid() {
               onClick={() => setSelectedCategory(cat.slug)}
               className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer border ${
                 selectedCategory === cat.slug
-                  ? "border-gold bg-gold text-charcoal"
-                  : "border-warm/20 text-warm/75 hover:border-warm/50 hover:text-warm"
+                  ? "border-[#111311] bg-[#111311] text-[#fbfbf9] dark:border-gold dark:bg-gold dark:text-[#111311]"
+                  : "border-warm/25 text-warm/80 hover:border-warm/60 hover:text-warm"
               }`}
             >
               <span className={`size-1.5 rounded-full ${dot}`} aria-hidden />

@@ -25,11 +25,11 @@ export function SiteFooter() {
             {company.descriptor} company, established in {company.established}.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-[#d96677] dark:text-[#f3a4af]">
+            <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-cherry-accent">
               <span className="size-1.5 rounded-full bg-cherry" aria-hidden />
               Est. {company.established}
             </span>
-            <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-[#3db888] dark:text-[#6ee2b3]">
+            <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-forest-accent">
               <span className="size-1.5 rounded-full bg-forest" aria-hidden />
               Bangalore HQ
             </span>
@@ -75,18 +75,18 @@ export function SiteFooter() {
           </div>
           <div>
             <h2 className="eyebrow mb-4 font-sans text-gold">{company.adminOffice.label}</h2>
-            <p className="text-warm/50">{company.adminOffice.lines.join(", ")}</p>
+            <p className="text-concrete">{company.adminOffice.lines.join(", ")}</p>
           </div>
           <div>
             <h2 className="eyebrow mb-4 font-sans text-gold">Contact</h2>
-            <ul className="space-y-2 text-warm/70">
+            <ul className="space-y-2 text-warm/75">
               <li>
                 {hasEmail && mail ? (
                   <a href={mail} className={linkCls}>
                     {company.contact.email}
                   </a>
                 ) : (
-                  <span className="text-warm/50">Email to be added</span>
+                  <span className="text-concrete">Email to be added</span>
                 )}
               </li>
               <li>
@@ -95,7 +95,7 @@ export function SiteFooter() {
                     {company.contact.phone}
                   </a>
                 ) : (
-                  <span className="text-warm/50">Phone to be added</span>
+                  <span className="text-concrete">Phone to be added</span>
                 )}
               </li>
               <li>
@@ -105,7 +105,7 @@ export function SiteFooter() {
                     WhatsApp
                   </a>
                 ) : (
-                  <span className="text-warm/50">WhatsApp to be added</span>
+                  <span className="text-concrete">WhatsApp to be added</span>
                 )}
               </li>
             </ul>

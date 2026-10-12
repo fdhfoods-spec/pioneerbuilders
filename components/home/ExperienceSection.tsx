@@ -53,7 +53,7 @@ export function ExperienceSection() {
             </div>
 
             {/* Placeholder Metrics: Honest Disclosures */}
-            <div className="mt-12 grid grid-cols-3 gap-4 border-t border-warm/10 pt-8">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 border-t border-warm/10 pt-8">
               {experienceMetrics.map((m) => (
                 <div key={m.label} data-reveal className="space-y-1">
                   <div className="flex items-center gap-2">

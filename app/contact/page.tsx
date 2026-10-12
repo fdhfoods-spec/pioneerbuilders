@@ -97,7 +97,7 @@ export default function ContactPage() {
                         {company.contact.email}
                       </a>
                     ) : (
-                      <span className="text-warm/50 mt-1">Email address to be configured</span>
+                      <span className="text-concrete mt-1">Email address to be configured</span>
                     )}
                   </li>
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
                         {company.contact.phone}
                       </a>
                     ) : (
-                      <span className="text-warm/50 mt-1">Telephone number to be configured</span>
+                      <span className="text-concrete mt-1">Telephone number to be configured</span>
                     )}
                   </li>
 
@@ -125,7 +125,7 @@ export default function ContactPage() {
                         Message on WhatsApp
                       </a>
                     ) : (
-                      <span className="text-warm/50 mt-1">WhatsApp number to be configured</span>
+                      <span className="text-concrete mt-1">WhatsApp number to be configured</span>
                     )}
                   </li>
                 </ul>

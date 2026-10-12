@@ -36,7 +36,7 @@ export function HeritageSection() {
               />
 
               <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#d96677] dark:text-[#f3a4af]">
+                <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cherry-accent">
                   <span className="size-1.5 rounded-full bg-cherry animate-pulse" />
                   Heritage Landmark
                 </span>

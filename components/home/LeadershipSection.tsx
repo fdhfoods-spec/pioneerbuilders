@@ -26,7 +26,7 @@ export function LeadershipSection() {
                   <PlaceholderTag>Pending Verification</PlaceholderTag>
                 </div>
                 <div className="flex items-center gap-2 mt-1.5">
-                  <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-[#3db888] dark:text-[#6ee2b3]">
+                  <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-forest-accent">
                     <span className="size-1.5 rounded-full bg-forest" aria-hidden />
                     {leadership.qualification}
                   </span>

@@ -82,7 +82,7 @@ export function BlueprintReveal() {
                 <div className="h-px w-full bg-warm/15">
                   <div data-bp-bar className="h-px origin-left scale-x-0 bg-gold" />
                 </div>
-                <ul className="mt-3 flex justify-between text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-warm/50">
+                <ul className="mt-3 flex justify-between text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-concrete">
                   {stages.map((s) => (
                     <li key={s.n}>{s.title.split(" ")[0]}</li>
                   ))}

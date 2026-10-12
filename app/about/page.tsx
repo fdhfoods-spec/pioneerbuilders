@@ -69,7 +69,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5">
               <div className="border-l-4 border-l-cherry border-y border-r border-warm/15 bg-charcoal p-8 sm:p-10 relative">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#d96677] dark:text-[#f3a4af]">
+                  <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cherry-accent">
                     <span className="size-1.5 rounded-full bg-cherry" aria-hidden />
                     Civil Milestone
                   </span>
@@ -120,7 +120,7 @@ export default function AboutPage() {
                     <PlaceholderTag>Verified Principal</PlaceholderTag>
                   </div>
                   <div className="flex items-center gap-2 mt-1.5">
-                    <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-[#3db888] dark:text-[#6ee2b3]">
+                    <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-forest-accent">
                       <span className="size-1.5 rounded-full bg-forest" aria-hidden />
                       {leadership.qualification}
                     </span>
