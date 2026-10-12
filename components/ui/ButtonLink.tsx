@@ -25,9 +25,10 @@ interface Props {
   className?: string;
   external?: boolean;
   icon?: boolean;
+  onClick?: () => void;
 }
 
-export function ButtonLink({ href, children, variant = "primary", className, external, icon = true }: Props) {
+export function ButtonLink({ href, children, variant = "primary", className, external, icon = true, onClick }: Props) {
   const cls = cn(base, variants[variant], className);
   const inner = (
     <>
@@ -43,13 +44,13 @@ export function ButtonLink({ href, children, variant = "primary", className, ext
   );
   if (external) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cls} target="_blank" rel="noopener noreferrer" onClick={onClick}>
         {inner}
       </a>
     );
   }
   return (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} onClick={onClick}>
       {inner}
     </Link>
   );
