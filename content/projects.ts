@@ -24,6 +24,7 @@ export interface Project {
   isPlaceholder: boolean;
 }
 
+const C = "/images/categories";
 const P = "/images/placeholders";
 
 export const projects: Project[] = [
@@ -37,11 +38,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for a multi-storey apartment project.",
     description:
       "This is a dummy project record used to demonstrate the layout of a project page. Replace it with the real project brief, scope of work, key challenges and outcome once verified.",
-    image: `${P}/apartments.svg`,
-    imageAlt: "Placeholder drawing of an apartment tower",
+    image: `${C}/apartments.jpg`,
+    imageAlt: "High-rise residential apartment towers with architectural concrete and evening lighting",
     gallery: [
-      { src: `${P}/detail-facade.svg`, alt: "Placeholder facade detail" },
-      { src: `${P}/detail-structure.svg`, alt: "Placeholder structural detail" },
+      { src: `${C}/residential.jpg`, alt: "Residential facade detail" },
+      { src: `${P}/detail-structure.svg`, alt: "Structural detail" },
     ],
     aspect: "portrait",
     featured: true,
@@ -57,11 +58,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for a healthcare building.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope, constraints and outcome once verified.",
-    image: `${P}/hospital.svg`,
-    imageAlt: "Placeholder drawing of a hospital building",
+    image: `${C}/hospitals.jpg`,
+    imageAlt: "Modern healthcare center with curved glass facade and drop-off entrance portico",
     gallery: [
-      { src: `${P}/detail-facade.svg`, alt: "Placeholder facade detail" },
-      { src: `${P}/crane-site.svg`, alt: "Placeholder construction site drawing" },
+      { src: `${C}/public.jpg`, alt: "Public healthcare campus plaza" },
+      { src: `${P}/crane-site.svg`, alt: "Construction site engineering" },
     ],
     aspect: "landscape",
     featured: true,
@@ -77,11 +78,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for an individual villa.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope and outcome once verified.",
-    image: `${P}/villa.svg`,
-    imageAlt: "Placeholder drawing of a modern villa",
+    image: `${C}/villas.jpg`,
+    imageAlt: "Luxury modern architectural villa with cantilevered slabs and infinity pool",
     gallery: [
-      { src: `${P}/detail-facade.svg`, alt: "Placeholder facade detail" },
-      { src: `${P}/detail-structure.svg`, alt: "Placeholder structural detail" },
+      { src: `${C}/residential.jpg`, alt: "Residential architectural detail" },
+      { src: `${P}/detail-structure.svg`, alt: "Structural engineering detail" },
     ],
     aspect: "square",
     featured: true,
@@ -97,11 +98,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for a multi-building housing project.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope and outcome once verified.",
-    image: `${P}/group-housing.svg`,
-    imageAlt: "Placeholder drawing of group housing blocks",
+    image: `${C}/group-housing.jpg`,
+    imageAlt: "Master-planned group housing community with landscaped courtyards and terraces",
     gallery: [
-      { src: `${P}/crane-site.svg`, alt: "Placeholder construction site drawing" },
-      { src: `${P}/detail-structure.svg`, alt: "Placeholder structural detail" },
+      { src: `${C}/apartments.jpg`, alt: "Residential housing blocks" },
+      { src: `${P}/detail-structure.svg`, alt: "Structural foundation detail" },
     ],
     aspect: "landscape",
     featured: true,
@@ -117,11 +118,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for an industrial building.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope and outcome once verified.",
-    image: `${P}/industrial.svg`,
-    imageAlt: "Placeholder drawing of an industrial facility",
+    image: `${C}/industrial.jpg`,
+    imageAlt: "High-tech industrial manufacturing and logistics facility with structural steel framing",
     gallery: [
-      { src: `${P}/detail-structure.svg`, alt: "Placeholder structural detail" },
-      { src: `${P}/crane-site.svg`, alt: "Placeholder construction site drawing" },
+      { src: `${P}/detail-structure.svg`, alt: "Structural column detail" },
+      { src: `${P}/crane-site.svg`, alt: "Erection and site coordination" },
     ],
     aspect: "portrait",
     featured: true,
@@ -137,11 +138,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for a public project.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope and outcome once verified.",
-    image: `${P}/public.svg`,
-    imageAlt: "Placeholder drawing of a public building",
+    image: `${C}/public.jpg`,
+    imageAlt: "Grand public institutional building with concrete colonnade and civic plaza",
     gallery: [
-      { src: `${P}/detail-facade.svg`, alt: "Placeholder facade detail" },
-      { src: `${P}/detail-structure.svg`, alt: "Placeholder structural detail" },
+      { src: `${P}/detail-facade.svg`, alt: "Facade detail" },
+      { src: `${P}/detail-structure.svg`, alt: "Structural detail" },
     ],
     aspect: "landscape",
     featured: false,
@@ -157,11 +158,11 @@ export const projects: Project[] = [
     summary: "Placeholder record for a residential building.",
     description:
       "This is a dummy project record. Replace it with the real project brief, scope and outcome once verified.",
-    image: `${P}/residential.svg`,
-    imageAlt: "Placeholder drawing of a residential building",
+    image: `${C}/residential.jpg`,
+    imageAlt: "Contemporary multi-story residential building with cast concrete balconies and timber louvers",
     gallery: [
-      { src: `${P}/detail-facade.svg`, alt: "Placeholder facade detail" },
-      { src: `${P}/crane-site.svg`, alt: "Placeholder construction site drawing" },
+      { src: `${C}/villas.jpg`, alt: "Bespoke residential finishing" },
+      { src: `${P}/crane-site.svg`, alt: "Construction execution" },
     ],
     aspect: "square",
     featured: false,
@@ -173,10 +174,10 @@ export const featuredProjects = projects.filter((p) => p.featured);
 export const projectBySlug = (slug: string) => projects.find((p) => p.slug === slug);
 
 export const galleryImages: { src: string; alt: string; span: string }[] = [
-  { src: `${P}/crane-site.svg`, alt: "Placeholder drawing of a construction site with a tower crane", span: "md:col-span-7 md:row-span-2" },
-  { src: `${P}/detail-facade.svg`, alt: "Placeholder detail of a building facade", span: "md:col-span-5" },
-  { src: `${P}/detail-structure.svg`, alt: "Placeholder detail of structural columns and beams", span: "md:col-span-5" },
-  { src: `${P}/villa.svg`, alt: "Placeholder drawing of a modern villa", span: "md:col-span-4" },
-  { src: `${P}/hospital.svg`, alt: "Placeholder drawing of a hospital building", span: "md:col-span-4" },
-  { src: `${P}/public.svg`, alt: "Placeholder drawing of a public building", span: "md:col-span-4" },
+  { src: "/images/hero/hero-building.jpg", alt: "Signature contemporary civil engineering structure", span: "md:col-span-7 md:row-span-2" },
+  { src: `${C}/residential.jpg`, alt: "Multi-story residential complex facade", span: "md:col-span-5" },
+  { src: `${C}/industrial.jpg`, alt: "Industrial structural steel warehouse and logistics facility", span: "md:col-span-5" },
+  { src: `${C}/villas.jpg`, alt: "Luxury modern architectural villa residence", span: "md:col-span-4" },
+  { src: `${C}/hospitals.jpg`, alt: "Modern healthcare center with curved glass facade", span: "md:col-span-4" },
+  { src: `${C}/public.jpg`, alt: "Grand public institutional building with concrete colonnade", span: "md:col-span-4" },
 ];

@@ -25,8 +25,8 @@ export const services: Service[] = [
     description:
       "Homes and residential structures planned for everyday living and built for the long term.",
     scope: ["Civil and structural construction", "Finishing and services coordination", "Site supervision"],
-    image: "/images/placeholders/residential.svg",
-    imageAlt: "Placeholder elevation drawing of a residential building",
+    image: "/images/categories/residential.jpg",
+    imageAlt: "Contemporary multi-story residential building with cast concrete balconies and timber louvers",
   },
   {
     slug: "industrial",
@@ -34,8 +34,8 @@ export const services: Service[] = [
     description:
       "Production, storage and logistics structures designed around load, span and workflow.",
     scope: ["Industrial sheds and frames", "Foundations and flooring", "Utilities coordination"],
-    image: "/images/placeholders/industrial.svg",
-    imageAlt: "Placeholder elevation drawing of an industrial shed",
+    image: "/images/categories/industrial.jpg",
+    imageAlt: "High-tech industrial manufacturing and logistics facility with structural steel framing",
   },
   {
     slug: "public",
@@ -43,8 +43,8 @@ export const services: Service[] = [
     description:
       "Civic and institutional structures built to serve communities and to last.",
     scope: ["Institutional buildings", "Public-use facilities", "Compliance-led execution"],
-    image: "/images/placeholders/public.svg",
-    imageAlt: "Placeholder elevation drawing of a public building with a colonnade",
+    image: "/images/categories/public.jpg",
+    imageAlt: "Grand public institutional building with concrete colonnade and civic plaza",
   },
   {
     slug: "group-housing",
@@ -52,8 +52,8 @@ export const services: Service[] = [
     description:
       "Coordinated residential communities delivered as multi-building projects.",
     scope: ["Multi-block construction", "Phased delivery planning", "Common infrastructure"],
-    image: "/images/placeholders/group-housing.svg",
-    imageAlt: "Placeholder elevation drawing of a row of group housing blocks",
+    image: "/images/categories/group-housing.jpg",
+    imageAlt: "Master-planned group housing community with landscaped courtyards and terraces",
   },
   {
     slug: "villas",
@@ -61,8 +61,8 @@ export const services: Service[] = [
     description:
       "Individually detailed homes where space, light and finish receive close attention.",
     scope: ["Custom residences", "Detailed finishing", "Landscape-ready sites"],
-    image: "/images/placeholders/villa.svg",
-    imageAlt: "Placeholder elevation drawing of a modern villa",
+    image: "/images/categories/villas.jpg",
+    imageAlt: "Luxury modern architectural villa with cantilevered slabs and infinity pool",
   },
   {
     slug: "hospitals",
@@ -70,8 +70,8 @@ export const services: Service[] = [
     description:
       "Healthcare buildings that call for careful coordination of services, access and safety.",
     scope: ["Healthcare facilities", "Services and MEP coordination", "Phased handover"],
-    image: "/images/placeholders/hospital.svg",
-    imageAlt: "Placeholder elevation drawing of a hospital building",
+    image: "/images/categories/hospitals.jpg",
+    imageAlt: "Modern healthcare center with curved glass facade and drop-off entrance portico",
   },
   {
     slug: "apartments",
@@ -79,8 +79,8 @@ export const services: Service[] = [
     description:
       "Multi-storey residential buildings delivered with structural discipline and orderly execution.",
     scope: ["Mid- and high-rise frames", "Vertical circulation and cores", "Quality inspection"],
-    image: "/images/placeholders/apartments.svg",
-    imageAlt: "Placeholder elevation drawing of an apartment tower",
+    image: "/images/categories/apartments.jpg",
+    imageAlt: "High-rise residential apartment towers with architectural concrete and evening lighting",
   },
 ];
 

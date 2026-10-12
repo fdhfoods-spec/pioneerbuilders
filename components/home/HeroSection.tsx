@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { company } from "@/content/company";
 import { MQ, gsap, registerGsap } from "@/lib/motion/gsap";
@@ -27,7 +28,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-charcoal pt-24 lg:pt-32"
+      className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-charcoal pt-20 sm:pt-24 lg:pt-28"
     >
       {/* Layer 1: Background Atmospheric Sky Canvas */}
       <div
@@ -35,24 +36,7 @@ export function HeroSection() {
         className="absolute -inset-y-[12%] inset-x-0 z-0 bg-gradient-to-b from-[var(--hero-sky-from,#161a16)] via-charcoal to-charcoal pointer-events-none"
       />
 
-      {/* Layer 2: Main Structural & Crane Silhouette */}
-      <div
-        data-hero-layer="crane"
-        className="absolute -inset-y-[15%] inset-x-0 z-0 opacity-40 pointer-events-none"
-      >
-        <Image
-          src="/images/placeholders/crane-site.svg"
-          alt="Architectural construction site rendering"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/50 to-transparent" />
-      </div>
-
-      {/* Layer 3: Foreground Blueprint Grid & Alignment Geometry */}
+      {/* Layer 2: Subtle Foreground Blueprint Grid & Alignment Geometry */}
       <div
         data-hero-layer="geometry"
         aria-hidden
@@ -65,47 +49,139 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Layer 4: Stable Typography & Action Layer */}
+      {/* Layer 3: Main Architectural 2-Column Hero Grid */}
       <div
         data-hero-layer="content"
-        className="container-x relative z-10 my-auto py-12 lg:py-16"
+        className="container-x relative z-10 my-auto py-10 lg:py-16"
       >
-        <div className="max-w-4xl">
-          <p
-            data-hero-in
-            className="eyebrow mb-6 flex items-center gap-3 text-gold"
-          >
-            <span aria-hidden className="h-px w-8 bg-gold" />
-            Civil Construction Since {company.established}
-          </p>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14 lg:items-center">
+          {/* Left Column: Typography, Story, Metric Badges & CTAs */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <p
+              data-hero-in
+              className="eyebrow mb-5 sm:mb-6 flex items-center gap-3 text-gold"
+            >
+              <span aria-hidden className="h-px w-8 bg-gold" />
+              Civil Construction Since {company.established}
+            </p>
 
-          <h1
-            data-hero-in
-            className="display-hero text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-warm leading-[0.98]"
-          >
-            BUILDING WITH EXPERIENCE.
-            <br />
-            <span className="text-warm/90">CREATING WHAT LASTS.</span>
-          </h1>
+            <h1
+              data-hero-in
+              className="display-hero text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.25rem] tracking-tight text-warm leading-[0.98]"
+            >
+              BUILDING WITH EXPERIENCE.
+              <br />
+              <span className="text-warm/90">CREATING WHAT LASTS.</span>
+            </h1>
 
-          <p
-            data-hero-in
-            className="mt-6 max-w-xl text-base sm:text-lg text-warm/75 font-sans leading-relaxed"
-          >
-            A construction company with a legacy dating back to {company.established}, focused on
-            creating spaces and structures for the future.
-          </p>
+            <p
+              data-hero-in
+              className="mt-6 max-w-xl text-base sm:text-lg text-warm/75 font-sans leading-relaxed"
+            >
+              A premier civil construction company with an unyielding heritage dating back to {company.established}.
+              We engineer and deliver residential complexes, industrial facilities, and public infrastructure designed for longevity.
+            </p>
 
-          <div
-            data-hero-in
-            className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6"
-          >
-            <ButtonLink href="/projects/" variant="primary">
-              Explore Projects
-            </ButtonLink>
-            <ButtonLink href="/contact/" variant="outline">
-              Discuss Your Project
-            </ButtonLink>
+            {/* Architectural Trust Datum Metrics */}
+            <div
+              data-hero-in
+              className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 border-y border-warm/15 py-4 max-w-xl"
+            >
+              <div>
+                <span className="display-h3 text-gold block">35+</span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
+                  Years Heritage
+                </span>
+              </div>
+              <div>
+                <span className="display-h3 text-forest-accent block">7</span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
+                  Civil Sectors
+                </span>
+              </div>
+              <div>
+                <span className="display-h3 text-cherry-accent block">100%</span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
+                  Civil Focus
+                </span>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div
+              data-hero-in
+              className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6"
+            >
+              <ButtonLink href="/projects/" variant="primary">
+                Explore Projects
+              </ButtonLink>
+              <ButtonLink href="/contact/" variant="outline">
+                Discuss Your Project
+              </ButtonLink>
+            </div>
+          </div>
+
+          {/* Right Column: Architectural Hero Building Showcase */}
+          <div className="lg:col-span-5" data-hero-in>
+            <div className="relative group mx-auto w-full max-w-lg lg:max-w-none">
+              {/* Outer Architectural Framing Accents */}
+              <div
+                aria-hidden
+                className="absolute -inset-2 border border-warm/10 pointer-events-none hidden sm:block"
+              />
+              <div
+                aria-hidden
+                className="absolute -top-3 -left-3 size-6 border-t-2 border-l-2 border-gold pointer-events-none z-20"
+              />
+              <div
+                aria-hidden
+                className="absolute -bottom-3 -right-3 size-6 border-b-2 border-r-2 border-gold pointer-events-none z-20"
+              />
+
+              {/* Main Image Container */}
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] xl:aspect-[5/6] w-full overflow-hidden border border-warm/20 bg-charcoal-2 shadow-2xl">
+                <Image
+                  src="/images/hero/hero-building.jpg"
+                  alt="Pioneer Builders signature contemporary civil architectural building"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
+
+                {/* Subtle vignette gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent opacity-80" />
+
+                {/* Top architectural stamp */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[0.68rem] font-semibold uppercase tracking-widest text-warm z-10">
+                  <span className="inline-flex items-center gap-1.5 border border-warm/20 bg-charcoal/80 px-2.5 py-1 backdrop-blur-md">
+                    <span className="size-1.5 rounded-full bg-forest animate-pulse" aria-hidden />
+                    Civil Engineering
+                  </span>
+                  <span className="border border-warm/20 bg-charcoal/80 px-2 py-1 backdrop-blur-md text-gold">
+                    Est. 1987
+                  </span>
+                </div>
+
+                {/* Bottom glassmorphic architectural card */}
+                <div className="absolute bottom-4 left-4 right-4 border border-warm/20 bg-charcoal/90 p-4 sm:p-5 backdrop-blur-md z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[0.65rem] uppercase tracking-widest text-gold font-bold">
+                      Flagship Civil Architecture
+                    </span>
+                    <span className="text-[0.65rem] text-concrete font-mono">12.97° N, 77.59° E</span>
+                  </div>
+                  <h3 className="display-h3 text-warm text-lg sm:text-xl mt-1 group-hover:text-gold transition-colors flex items-center justify-between">
+                    <span>Engineered for Permanence</span>
+                    <ArrowUpRight className="size-4 text-gold transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </h3>
+                  <div className="mt-2.5 pt-2 border-t border-warm/15 flex items-center justify-between text-[0.65rem] text-concrete uppercase tracking-wider">
+                    <span>Concrete • Steel • Glass</span>
+                    <span className="text-forest-accent font-semibold">Bangalore HQ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
