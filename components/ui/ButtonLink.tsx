@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "outline" | "outline-dark" | "ghost" | "parrot";
 
 const base =
-  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-300 ease-out active:translate-y-px active:scale-[0.99]";
+  "group items-center justify-center gap-2.5 whitespace-nowrap px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-300 ease-out active:translate-y-px active:scale-[0.99]";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -31,7 +31,9 @@ interface Props {
 }
 
 export function ButtonLink({ href, children, variant = "primary", className, external, icon = true, onClick }: Props) {
-  const cls = cn(base, variants[variant], className);
+  const hasDisplay = className && /\b(hidden|flex|inline-flex|block|inline-block)\b/.test(className);
+  const displayClass = hasDisplay ? "" : "inline-flex";
+  const cls = cn(base, displayClass, variants[variant], className);
   const inner = (
     <>
       {children}

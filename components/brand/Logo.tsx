@@ -57,14 +57,14 @@ export function Logo({ className, tone = "auto", markOnly = false }: LogoProps):
     <span className={cn("inline-flex items-center gap-2 sm:gap-3", className)}>
       <LogoMark tone={tone} />
       {!markOnly && (
-        <span className="flex flex-col leading-none">
+        <span className="flex flex-col leading-none shrink-0">
           <span
-            className={cn("font-display text-[0.92rem] sm:text-[1.05rem] font-bold uppercase tracking-[0.05em] sm:tracking-[0.06em]", text)}
+            className={cn("font-display text-[0.88rem] sm:text-[1.05rem] font-bold uppercase tracking-[0.04em] sm:tracking-[0.06em] whitespace-nowrap", text)}
             style={{ fontVariationSettings: '"wdth" 112' }}
           >
             Pioneer Builders
           </span>
-          <span className="mt-1 flex items-center text-[0.6rem] sm:text-[0.62rem] font-semibold uppercase tracking-[0.28em] sm:tracking-[0.34em] text-gold">
+          <span className="mt-0.5 sm:mt-1 flex items-center text-[0.58rem] sm:text-[0.62rem] font-semibold uppercase tracking-[0.22em] sm:tracking-[0.34em] text-gold whitespace-nowrap">
             <span className="inline-block size-1.5 rounded-full bg-cherry mr-1.5 shrink-0" aria-hidden />
             Since 1987
           </span>

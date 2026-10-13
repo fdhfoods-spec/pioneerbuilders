@@ -136,20 +136,22 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <ThemeToggle />
 
-          {/* Enquiry Button: visible on tablet & desktop (>= 640px) */}
-          <ButtonLink
-            href={enquiryCta.href}
-            variant="parrot"
-            className="hidden sm:inline-flex !py-2.5 !px-4 lg:!px-5 text-xs font-bold"
-          >
-            {enquiryCta.label}
-          </ButtonLink>
+          {/* Enquiry Button: visible on desktop (>= 1024px) */}
+          <div className="hidden lg:block">
+            <ButtonLink
+              href={enquiryCta.href}
+              variant="parrot"
+              className="!py-2.5 !px-4 lg:!px-5 text-xs font-bold"
+            >
+              {enquiryCta.label}
+            </ButtonLink>
+          </div>
 
           {/* Hamburger Menu Toggle (mobile & tablet < 1024px) */}
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex size-11 sm:size-12 items-center justify-center border border-warm/25 bg-charcoal-2 text-warm transition-colors hover:border-[#44d62c] hover:text-[#44d62c] lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#44d62c]"
+            className="inline-flex size-10 sm:size-11 items-center justify-center border border-warm/25 bg-charcoal-2 text-warm transition-colors hover:border-[#44d62c] hover:text-[#44d62c] lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#44d62c] shrink-0"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
