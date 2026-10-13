@@ -63,7 +63,7 @@ export function ThemeToggle({ className, showLabel = false }: ThemeToggleProps) 
       aria-label={label}
       title={label}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 border border-warm/20 bg-charcoal-2 text-warm transition-[background-color,border-color,color] duration-300 hover:border-gold hover:text-gold active:translate-y-px",
+        "group relative inline-flex items-center justify-center gap-2 border border-warm/20 bg-charcoal-2 text-warm transition-[background-color,border-color,color] duration-300 hover:border-[#44d62c] hover:text-[#44d62c] active:translate-y-px",
         showLabel ? "px-3.5 py-2 text-xs uppercase tracking-wider" : "size-10 sm:size-11 shrink-0",
         className,
       )}

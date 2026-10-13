@@ -49,7 +49,7 @@ export function SiteHeader() {
 
     root.style.overflow = "hidden";
     body.style.overflow = "hidden";
-    menuRef.current?.querySelector<HTMLElement>("a")?.focus();
+    menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") return close();
@@ -87,8 +87,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled || open
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300",
+        open
+          ? "border-b border-warm/10 bg-charcoal shadow-2xl"
+          : scrolled
           ? "border-b border-warm/10 bg-charcoal/95 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
@@ -98,7 +100,7 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Pioneer Builders, home"
-          className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#44d62c]"
           onClick={() => open && close(false)}
         >
           <Logo />
@@ -116,9 +118,9 @@ export function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "relative py-2 text-[0.76rem] xl:text-[0.82rem] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.16em] transition-colors",
-                      "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-300",
+                      "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-[#44d62c] after:transition-transform after:duration-300",
                       active
-                        ? "text-gold after:scale-x-100 font-bold"
+                        ? "text-[#44d62c] after:scale-x-100 font-bold"
                         : "text-warm/80 hover:text-warm hover:after:scale-x-100",
                     )}
                   >
@@ -137,7 +139,8 @@ export function SiteHeader() {
           {/* Enquiry Button: visible on tablet & desktop (>= 640px) */}
           <ButtonLink
             href={enquiryCta.href}
-            className="hidden sm:inline-flex !py-2.5 !px-4 lg:!px-5 text-xs"
+            variant="parrot"
+            className="hidden sm:inline-flex !py-2.5 !px-4 lg:!px-5 text-xs font-bold"
           >
             {enquiryCta.label}
           </ButtonLink>
@@ -146,7 +149,7 @@ export function SiteHeader() {
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex size-10 sm:size-11 items-center justify-center border border-warm/25 bg-charcoal-2 text-warm transition-colors hover:border-gold hover:text-gold lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="inline-flex size-11 sm:size-12 items-center justify-center border border-warm/25 bg-charcoal-2 text-warm transition-colors hover:border-[#44d62c] hover:text-[#44d62c] lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#44d62c]"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
@@ -165,8 +168,11 @@ export function SiteHeader() {
       <div
         id="mobile-menu"
         ref={menuRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation Menu"
         className={cn(
-          "fixed inset-x-0 bottom-0 top-16 sm:top-[68px] z-40 overflow-y-auto overscroll-contain bg-charcoal border-t border-warm/10 lg:hidden transition-all duration-300 ease-out",
+          "fixed inset-x-0 top-16 sm:top-[68px] h-[calc(100dvh-4rem)] sm:h-[calc(100dvh-68px)] z-40 overflow-y-auto overscroll-contain bg-charcoal border-t border-warm/10 lg:hidden transition-all duration-300 ease-out",
           open
             ? "visible opacity-100 translate-y-0"
             : "invisible opacity-0 -translate-y-2 pointer-events-none",
@@ -174,8 +180,24 @@ export function SiteHeader() {
       >
         <nav
           aria-label="Mobile"
-          className="container-x flex min-h-full flex-col justify-between gap-8 py-8 pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))]"
+          className="container-x flex min-h-full flex-col justify-between gap-8 py-6 pb-[calc(3rem+env(safe-area-inset-bottom,0px))]"
         >
+          {/* Top In-Drawer Status & Close Control */}
+          <div className="flex items-center justify-between pb-3 border-b border-warm/10">
+            <span className="text-[0.68rem] uppercase tracking-widest text-concrete font-semibold">
+              Navigation Menu
+            </span>
+            <button
+              type="button"
+              onClick={() => close(true)}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-warm hover:text-[#44d62c] border border-warm/20 hover:border-[#44d62c] transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="size-3.5" />
+              <span>Close</span>
+            </button>
+          </div>
+
           {/* Main Navigation Links */}
           <ul className="flex flex-col divide-y divide-warm/10">
             {mainNav.map((item, i) => {
@@ -188,7 +210,7 @@ export function SiteHeader() {
                     onClick={() => close(false)}
                     className={cn(
                       "group flex items-center justify-between py-4 sm:py-5 font-display text-2xl sm:text-3xl font-semibold tracking-tight transition-colors",
-                      active ? "text-gold" : "text-warm hover:text-gold",
+                      active ? "text-[#44d62c]" : "text-warm hover:text-[#44d62c]",
                     )}
                   >
                     <span className="flex items-baseline gap-4">
@@ -201,7 +223,7 @@ export function SiteHeader() {
                       aria-hidden
                       className={cn(
                         "size-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
-                        active ? "text-gold opacity-100" : "text-concrete opacity-60",
+                        active ? "text-[#44d62c] opacity-100" : "text-concrete opacity-60",
                       )}
                     />
                   </Link>
@@ -211,14 +233,14 @@ export function SiteHeader() {
           </ul>
 
           {/* Quick Info & Actions Area */}
-          <div className="flex flex-col gap-5 pt-4">
-            {/* Quick architectural benchmark card */}
+          <div className="flex flex-col gap-4 pt-4">
+            {/* Architectural benchmark card with consistent journey data */}
             <div className="flex items-center justify-between border border-warm/15 bg-charcoal-2 px-4 py-3 text-xs text-concrete uppercase tracking-wider">
               <span className="flex items-center gap-2">
                 <span className="size-2 rounded-full bg-forest animate-pulse" aria-hidden />
-                <span>HQ Bangalore</span>
+                <span>Est. {company.established} • Coimbatore</span>
               </span>
-              <span className="text-gold font-semibold">Est. {company.established}</span>
+              <span className="text-[#44d62c] font-semibold">Base: Bangalore</span>
             </div>
 
             {/* Theme Toggle in drawer */}
@@ -232,7 +254,8 @@ export function SiteHeader() {
             {/* Full-width CTA */}
             <ButtonLink
               href={enquiryCta.href}
-              className="w-full text-center"
+              variant="parrot"
+              className="w-full text-center font-bold !py-3.5"
               onClick={() => close(false)}
             >
               {enquiryCta.label}

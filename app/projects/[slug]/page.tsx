@@ -43,11 +43,14 @@ export default async function ProjectDetailPage({ params }: Props) {
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
+  const isArch = project.category.toLowerCase().includes("architectural");
   const isHealthcare = project.category.toLowerCase().includes("hospital") || project.category.toLowerCase().includes("public");
   const isIndustrial = project.category.toLowerCase().includes("industrial");
   const isMulti = project.category.toLowerCase().includes("housing") || project.category.toLowerCase().includes("apartment");
 
-  const categoryDot = isHealthcare
+  const categoryDot = isArch
+    ? "bg-[#44d62c]"
+    : isHealthcare
     ? "bg-forest"
     : isIndustrial
     ? "bg-concrete"
@@ -55,7 +58,9 @@ export default async function ProjectDetailPage({ params }: Props) {
     ? "bg-cherry"
     : "bg-gold";
 
-  const categoryText = isHealthcare
+  const categoryText = isArch
+    ? "text-[#44d62c]"
+    : isHealthcare
     ? "text-forest-accent"
     : isIndustrial
     ? "text-concrete"

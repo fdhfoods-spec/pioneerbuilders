@@ -20,10 +20,10 @@ export function ProjectGrid() {
         <button
           type="button"
           onClick={() => setSelectedCategory("all")}
-          className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer border ${
+          className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer border ${
             selectedCategory === "all"
-              ? "border-[#111311] bg-[#111311] text-[#fbfbf9] dark:border-gold dark:bg-gold dark:text-[#111311]"
-              : "border-warm/25 text-warm/80 hover:border-warm/60 hover:text-warm"
+              ? "border-[#44d62c] bg-[#44d62c] text-[#111311] dark:border-[#44d62c] dark:bg-[#44d62c] dark:text-[#111311] shadow-sm"
+              : "border-warm/25 text-warm/80 hover:border-[#44d62c] hover:text-[#44d62c]"
           }`}
         >
           All Categories ({projects.length})
@@ -31,20 +31,21 @@ export function ProjectGrid() {
 
         {services.map((cat) => {
           const count = projects.filter((p) => p.category === cat.slug).length;
+          const isArch = cat.slug === "architectural-design";
           const isHealthcare = cat.slug === "hospitals" || cat.slug === "public";
           const isIndustrial = cat.slug === "industrial";
           const isMulti = cat.slug === "group-housing" || cat.slug === "apartments";
-          const dot = isHealthcare ? "bg-forest" : isIndustrial ? "bg-concrete" : isMulti ? "bg-cherry" : "bg-gold";
+          const dot = isArch ? "bg-[#44d62c]" : isHealthcare ? "bg-forest" : isIndustrial ? "bg-concrete" : isMulti ? "bg-cherry" : "bg-gold";
 
           return (
             <button
               key={cat.slug}
               type="button"
               onClick={() => setSelectedCategory(cat.slug)}
-              className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer border ${
+              className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer border ${
                 selectedCategory === cat.slug
-                  ? "border-[#111311] bg-[#111311] text-[#fbfbf9] dark:border-gold dark:bg-gold dark:text-[#111311]"
-                  : "border-warm/25 text-warm/80 hover:border-warm/60 hover:text-warm"
+                  ? "border-[#44d62c] bg-[#44d62c] text-[#111311] dark:border-[#44d62c] dark:bg-[#44d62c] dark:text-[#111311] shadow-sm"
+                  : "border-warm/25 text-warm/80 hover:border-[#44d62c] hover:text-[#44d62c]"
               }`}
             >
               <span className={`size-1.5 rounded-full ${dot}`} aria-hidden />

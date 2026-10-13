@@ -1,4 +1,5 @@
 export type ServiceSlug =
+  | "architectural-design"
   | "residential"
   | "industrial"
   | "public"
@@ -10,15 +11,33 @@ export type ServiceSlug =
 export interface Service {
   slug: ServiceSlug;
   title: string;
-  /** Provisional copy until the real service scope is verified. */
+  headline?: string;
   description: string;
-  /** Provisional scope points. */
   scope: string[];
   image: string;
   imageAlt: string;
+  cta?: string;
 }
 
 export const services: Service[] = [
+  {
+    slug: "architectural-design",
+    title: "Architectural Design",
+    headline: "From Concept to Concrete.",
+    description:
+      "We bring ideas to life through thoughtful architectural design that balances aesthetics, functionality, and practical construction requirements. From initial concepts and space planning to detailed design coordination, we help shape buildings that respond to the client’s vision, site conditions, and intended use.",
+    scope: [
+      "Architectural concepts and building layouts",
+      "Space planning and functional design",
+      "Elevation and façade design",
+      "Residential and commercial building design",
+      "Design coordination with structural and construction requirements",
+      "Design-to-execution coordination",
+    ],
+    image: "/images/categories/architectural-design.jpg",
+    imageAlt: "Architectural concept blueprint, elevation drawings and planning diagrams",
+    cta: "Discuss Your Design",
+  },
   {
     slug: "residential",
     title: "Residential Buildings",

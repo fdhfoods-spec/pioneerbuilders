@@ -1,5 +1,4 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { ParallaxImage } from "@/components/ui/ParallaxImage";
 import { experienceMetrics, approachPoints } from "@/content/process";
 
@@ -52,17 +51,35 @@ export function ExperienceSection() {
               })}
             </div>
 
-            {/* Placeholder Metrics: Honest Disclosures */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 border-t border-warm/10 pt-8">
-              {experienceMetrics.map((m) => (
-                <div key={m.label} data-reveal className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="display-h3 text-gold">{m.value}</span>
-                    <PlaceholderTag>{m.note}</PlaceholderTag>
+            {/* Confirmed Experience Metrics */}
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3.5 lg:gap-4 border-t border-warm/10 pt-8">
+              {experienceMetrics.map((m, idx) => {
+                const accentColor =
+                  idx === 0 ? "text-gold" : idx === 1 ? "text-forest-accent" : "text-cherry-accent";
+
+                return (
+                  <div
+                    key={m.label}
+                    data-reveal
+                    data-delay={idx * 0.1}
+                    className="border border-warm/15 bg-charcoal p-4 sm:p-3.5 md:p-4 lg:p-5 flex flex-col justify-between min-w-0 overflow-hidden"
+                  >
+                    <div className="min-w-0">
+                      <span
+                        className={`text-[1.75rem] sm:text-[1.35rem] md:text-2xl lg:text-[1.75rem] xl:text-3xl ${accentColor} block font-extrabold font-display leading-tight tracking-tight tabular-nums`}
+                      >
+                        {m.value}
+                      </span>
+                      <h4 className="text-[0.72rem] sm:text-[0.68rem] md:text-xs font-bold uppercase tracking-wider text-warm mt-2 sm:mt-2.5 leading-snug">
+                        {m.label}
+                      </h4>
+                      <p className="text-xs text-concrete leading-relaxed mt-2 font-sans">
+                        {m.detail}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-concrete uppercase tracking-wider">{m.label}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

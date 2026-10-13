@@ -1,16 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { services } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Civil Construction Services & Sectors",
+  title: "Civil Construction & Architectural Design Services",
   description:
-    "Comprehensive civil construction categories by Pioneer Builders: Residential, Industrial, Public Buildings, Group Housing, Villas, Hospitals, and Apartments.",
+    "Comprehensive civil construction and architectural design capabilities by Pioneer Builders: Architectural Design, Residential, Industrial, Public Buildings, Group Housing, Villas, Hospitals, and Apartments.",
   path: "/services/",
 });
 
@@ -21,65 +19,80 @@ export default function ServicesPage() {
       <section className="relative py-20 lg:py-28 bg-charcoal border-b border-warm/10">
         <div className="container-x">
           <div className="flex items-center gap-3 mb-6">
-            <span className="eyebrow text-gold">Civil Building Capabilities</span>
-            <PlaceholderTag>Provisional Service Scope</PlaceholderTag>
+            <span className="eyebrow text-gold">Design &amp; Construction Capabilities</span>
+            <span className="inline-flex items-center gap-1.5 border border-[#44d62c]/40 bg-[#44d62c]/10 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-[#44d62c]">
+              <span className="size-1.5 rounded-full bg-[#44d62c]" aria-hidden />
+              {services.length} Disciplines
+            </span>
           </div>
           <h1 className="display-hero text-4xl sm:text-6xl lg:text-7xl text-warm max-w-4xl tracking-tight">
-            ENGINEERED ACROSS
+            FROM CONCEPT
             <br />
-            SEVEN SECTORS.
+            TO CONCRETE.
           </h1>
-          <p className="mt-8 max-w-2xl text-base sm:text-lg text-warm/75 leading-relaxed font-sans">
-            From heavy industrial production sheds and healthcare infrastructure to bespoke private
-            villas and multi-storey group developments, Pioneer Builders applies deep civil engineering
-            standards across all seven construction categories.
+          <p className="mt-8 max-w-3xl text-base sm:text-lg text-warm/75 leading-relaxed font-sans">
+            From architectural design to construction execution, Pioneer Builders brings ideas,
+            planning, and practical building expertise together to deliver thoughtfully designed,
+            well-executed spaces across residential, industrial, commercial, and public developments.
           </p>
         </div>
       </section>
 
       {/* Services List with Anchors */}
       <section className="py-20 lg:py-28 bg-charcoal-2">
-        <div className="container-x space-y-24">
+        <div className="container-x space-y-20 sm:space-y-24">
           {services.map((service, idx) => {
             const isEven = idx % 2 === 0;
+            const isArch = service.slug === "architectural-design";
 
-            const sectorTheme =
-              service.slug === "hospitals" || service.slug === "public"
-                ? {
-                    badge: "border-forest/40 text-forest-accent bg-forest/15",
-                    dot: "bg-forest",
-                    hover: "hover:border-forest/60",
-                    borderLeft: "border-l-4 border-l-forest",
-                  }
-                : service.slug === "industrial"
-                ? {
-                    badge: "border-concrete/40 text-concrete bg-concrete/15",
-                    dot: "bg-concrete",
-                    hover: "hover:border-concrete/60",
-                    borderLeft: "border-l-4 border-l-concrete",
-                  }
-                : service.slug === "group-housing" || service.slug === "apartments"
-                ? {
-                    badge: "border-cherry/40 text-cherry-accent bg-cherry/15",
-                    dot: "bg-cherry",
-                    hover: "hover:border-cherry/60",
-                    borderLeft: "border-l-4 border-l-cherry",
-                  }
-                : {
-                    badge: "border-gold/40 text-gold bg-gold/15",
-                    dot: "bg-gold",
-                    hover: "hover:border-gold/60",
-                    borderLeft: "border-l-4 border-l-gold",
-                  };
+            const sectorTheme = isArch
+              ? {
+                  badge: "border-[#44d62c]/40 text-[#44d62c] bg-[#44d62c]/15",
+                  dot: "bg-[#44d62c]",
+                  hover: "hover:border-[#44d62c]/60",
+                  borderLeft: "border-l-4 border-l-[#44d62c]",
+                  label: "Architecture",
+                }
+              : service.slug === "hospitals" || service.slug === "public"
+              ? {
+                  badge: "border-forest/40 text-forest-accent bg-forest/15",
+                  dot: "bg-forest",
+                  hover: "hover:border-forest/60",
+                  borderLeft: "border-l-4 border-l-forest",
+                  label: service.slug === "hospitals" ? "Healthcare" : "Civic",
+                }
+              : service.slug === "industrial"
+              ? {
+                  badge: "border-concrete/40 text-concrete bg-concrete/15",
+                  dot: "bg-concrete",
+                  hover: "hover:border-concrete/60",
+                  borderLeft: "border-l-4 border-l-concrete",
+                  label: "Industrial",
+                }
+              : service.slug === "group-housing" || service.slug === "apartments"
+              ? {
+                  badge: "border-cherry/40 text-cherry-accent bg-cherry/15",
+                  dot: "bg-cherry",
+                  hover: "hover:border-cherry/60",
+                  borderLeft: "border-l-4 border-l-cherry",
+                  label: "Multi-Unit",
+                }
+              : {
+                  badge: "border-gold/40 text-gold bg-gold/15",
+                  dot: "bg-gold",
+                  hover: "hover:border-gold/60",
+                  borderLeft: "border-l-4 border-l-gold",
+                  label: "Residential",
+                };
 
             return (
               <div
                 key={service.slug}
                 id={service.slug}
-                className={`scroll-mt-28 ${sectorTheme.borderLeft} border-y border-r border-warm/15 bg-charcoal p-8 sm:p-12 transition-colors ${sectorTheme.hover}`}
+                className={`scroll-mt-28 ${sectorTheme.borderLeft} border-y border-r border-warm/15 bg-charcoal p-6 sm:p-10 lg:p-12 transition-colors ${sectorTheme.hover}`}
               >
-                <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-                  {/* Visual Elevation Drawing */}
+                <div className="grid gap-10 lg:gap-14 lg:grid-cols-12 lg:items-center">
+                  {/* Visual Elevation Drawing / Render */}
                   <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                     <div className="relative aspect-[16/10] w-full overflow-hidden border border-warm/15 bg-charcoal-3">
                       <Image
@@ -88,6 +101,7 @@ export default function ServicesPage() {
                         fill
                         sizes="(min-width: 1024px) 40vw, 95vw"
                         className="object-cover"
+                        priority={idx === 0}
                       />
                     </div>
                   </div>
@@ -99,24 +113,34 @@ export default function ServicesPage() {
                         <span className={`size-2 rounded-full ${sectorTheme.dot}`} aria-hidden />
                         <span className="font-semibold text-gold">Category 0{idx + 1}</span>
                       </div>
-                      <PlaceholderTag tone="concrete">Provisional Scope</PlaceholderTag>
+                      <span
+                        className={`inline-flex items-center border px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider ${sectorTheme.badge}`}
+                      >
+                        {sectorTheme.label}
+                      </span>
                     </div>
+
+                    {service.headline && (
+                      <p className="text-xs uppercase tracking-widest font-semibold text-gold mb-1">
+                        {service.headline}
+                      </p>
+                    )}
 
                     <h2 className="display-h2 text-warm">{service.title}</h2>
 
-                    <p className="mt-4 text-base text-warm/75 leading-relaxed max-w-[55ch]">
+                    <p className="mt-4 text-base text-warm/75 leading-relaxed max-w-[55ch] font-sans">
                       {service.description}
                     </p>
 
                     <div className="mt-8 border-t border-warm/10 pt-6">
                       <h3 className="text-xs font-semibold uppercase tracking-wider text-concrete mb-4">
-                        Typical Engineering Scope
+                        {isArch ? "Core Architectural Scope" : "Typical Engineering Scope"}
                       </h3>
-                      <ul className="grid gap-2 sm:grid-cols-2">
+                      <ul className="grid gap-2.5 sm:grid-cols-2">
                         {service.scope.map((item) => (
-                          <li key={item} className="flex items-center gap-2 text-sm text-warm/80">
-                            <span className="size-1.5 bg-gold shrink-0" />
-                            {item}
+                          <li key={item} className="flex items-start gap-2 text-sm text-warm/80">
+                            <span className="size-1.5 bg-gold shrink-0 mt-2" />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -124,7 +148,7 @@ export default function ServicesPage() {
 
                     <div className="mt-8 pt-6 border-t border-warm/10 flex flex-wrap items-center gap-6">
                       <ButtonLink href="/contact/" variant="primary">
-                        Discuss {service.title}
+                        {service.cta ?? `Discuss ${service.title}`}
                       </ButtonLink>
 
                       <Link

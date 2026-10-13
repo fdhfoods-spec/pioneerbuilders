@@ -17,6 +17,8 @@
   --color-cherry-accent: #c44053;
   --color-forest: #1d4938;
   --color-forest-accent: #378b68;
+  --color-parrot: #44d62c;
+  --color-parrot-hover: #38be23;
   --color-concrete: #858782;
   --color-concrete-dim: #5d605b;
   --color-warm: #f5f2eb;
@@ -96,7 +98,7 @@
     color: #111311;
   }
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-parrot);
     outline-offset: 3px;
     border-radius: 2px;
   }

@@ -3,19 +3,21 @@ import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "outline" | "outline-dark" | "ghost";
+type Variant = "primary" | "outline" | "outline-dark" | "ghost" | "parrot";
 
 const base =
   "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-300 ease-out active:translate-y-px active:scale-[0.99]";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[#111311] text-[#f5f2eb] border border-[#111311] hover:bg-[#705314] hover:border-[#705314] hover:text-[#ffffff] dark:bg-gold dark:text-[#111311] dark:border-gold dark:hover:bg-[#f5f2eb] dark:hover:border-[#f5f2eb] dark:hover:text-[#111311]",
+    "bg-[#44d62c] text-[#111311] border border-[#44d62c] hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] shadow-sm font-bold",
+  parrot:
+    "bg-[#44d62c] text-[#111311] border border-[#44d62c] hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] shadow-sm font-bold",
   outline:
-    "border border-warm/40 text-warm hover:border-warm hover:bg-[#111311] hover:text-[#f5f2eb] dark:hover:bg-warm dark:hover:text-[#111311]",
+    "bg-[#44d62c] text-[#111311] border border-[#44d62c] hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] shadow-sm font-bold",
   "outline-dark":
-    "border border-warm/60 text-warm hover:border-warm hover:bg-[#111311] hover:text-[#f5f2eb] dark:hover:bg-warm dark:hover:text-[#111311]",
-  ghost: "text-warm hover:text-gold px-0",
+    "bg-[#44d62c] text-[#111311] border border-[#44d62c] hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] shadow-sm font-bold",
+  ghost: "text-[#44d62c] hover:text-[#38be23] px-0 font-bold",
 };
 
 interface Props {

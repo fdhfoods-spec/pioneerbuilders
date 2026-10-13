@@ -22,16 +22,16 @@ export function SiteFooter() {
             <Logo />
           </Link>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-warm/65">
-            {company.descriptor} company, established in {company.established}.
+            {company.descriptor} company, founded in Coimbatore ({company.established}), with ~25 years in Chennai and present operations in Bangalore.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1.5 border border-cherry/40 bg-cherry/15 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-cherry-accent">
               <span className="size-1.5 rounded-full bg-cherry" aria-hidden />
-              Est. {company.established}
+              Est. {company.established} (Coimbatore)
             </span>
-            <span className="inline-flex items-center gap-1.5 border border-forest/40 bg-forest/20 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-forest-accent">
-              <span className="size-1.5 rounded-full bg-forest" aria-hidden />
-              Bangalore HQ
+            <span className="inline-flex items-center gap-1.5 border border-[#44d62c]/40 bg-[#44d62c]/10 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-[#44d62c]">
+              <span className="size-1.5 rounded-full bg-[#44d62c]" aria-hidden />
+              Present Base: Bangalore
             </span>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function SiteFooter() {
                 {hasWhatsapp && wa ? (
                   <a href={wa} className="text-forest-accent hover:text-gold transition-colors flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                     <span className="size-1.5 rounded-full bg-forest" aria-hidden />
-                    WhatsApp
+                    WhatsApp ({company.contact.whatsapp})
                   </a>
                 ) : (
                   <span className="text-concrete">WhatsApp to be added</span>

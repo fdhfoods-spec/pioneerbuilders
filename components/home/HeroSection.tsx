@@ -78,8 +78,7 @@ export function HeroSection() {
               data-hero-in
               className="mt-6 max-w-xl text-base sm:text-lg text-warm/75 font-sans leading-relaxed"
             >
-              A premier civil construction company with an unyielding heritage dating back to {company.established}.
-              We engineer and deliver residential complexes, industrial facilities, and public infrastructure designed for longevity.
+              Founded in Coimbatore in 1987, Pioneer Builders has grown through decades of hands-on construction experience. From our beginnings in Coimbatore to approximately 25 years of work in Chennai and our present base in Bangalore, our journey reflects a lasting commitment to structural quality, engineering discipline, and dependable execution.
             </p>
 
             {/* Architectural Trust Datum Metrics */}
@@ -87,22 +86,28 @@ export function HeroSection() {
               data-hero-in
               className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 border-y border-warm/15 py-4 max-w-xl"
             >
-              <div>
-                <span className="display-h3 text-gold block">35+</span>
-                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-gold block leading-tight tracking-tight tabular-nums">
+                  35+
+                </span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5 truncate">
                   Years Heritage
                 </span>
               </div>
-              <div>
-                <span className="display-h3 text-forest-accent block">7</span>
-                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
-                  Civil Sectors
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-forest-accent block leading-tight tracking-tight tabular-nums">
+                  10+
+                </span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5 truncate">
+                  Work Categories
                 </span>
               </div>
-              <div>
-                <span className="display-h3 text-cherry-accent block">100%</span>
-                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5">
-                  Civil Focus
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-cherry-accent block leading-tight tracking-tight tabular-nums">
+                  100+
+                </span>
+                <span className="text-[0.68rem] uppercase tracking-wider text-concrete font-medium block mt-0.5 truncate">
+                  Projects Delivered
                 </span>
               </div>
             </div>

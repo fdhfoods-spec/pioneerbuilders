@@ -122,7 +122,7 @@ export default function ContactPage() {
                         className="text-forest-accent hover:text-warm font-semibold transition-colors mt-1 flex items-center gap-1.5"
                       >
                         <span className="size-1.5 rounded-full bg-forest" aria-hidden />
-                        Message on WhatsApp
+                        {company.contact.whatsapp} (WhatsApp)
                       </a>
                     ) : (
                       <span className="text-concrete mt-1">WhatsApp number to be configured</span>

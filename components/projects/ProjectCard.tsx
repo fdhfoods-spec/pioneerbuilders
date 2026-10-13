@@ -17,11 +17,14 @@ export function ProjectCard({ project, className = "" }: Props) {
       ? "aspect-square"
       : "aspect-[16/10]";
 
+  const isArch = project.category.includes("architectural");
   const isHealthcare = project.category.includes("hospital") || project.category.includes("public");
   const isIndustrial = project.category.includes("industrial");
   const isMulti = project.category.includes("housing") || project.category.includes("apartment");
 
-  const categoryDot = isHealthcare
+  const categoryDot = isArch
+    ? "bg-[#44d62c]"
+    : isHealthcare
     ? "bg-forest"
     : isIndustrial
     ? "bg-concrete"
@@ -29,7 +32,9 @@ export function ProjectCard({ project, className = "" }: Props) {
     ? "bg-cherry"
     : "bg-gold";
 
-  const categoryText = isHealthcare
+  const categoryText = isArch
+    ? "text-[#44d62c]"
+    : isHealthcare
     ? "text-forest-accent"
     : isIndustrial
     ? "text-concrete"

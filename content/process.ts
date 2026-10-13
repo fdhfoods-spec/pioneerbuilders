@@ -15,12 +15,29 @@ export const processSteps: ProcessStep[] = [
   { title: "Handover", text: "Completing documentation and handing the finished building to its owner." },
 ];
 
-/** Metrics are placeholders until real figures are verified. Never present as fact. */
-export const experienceMetrics = [
-  { value: "XX", label: "Projects delivered", note: "Placeholder metric" },
-  { value: "XX", label: "Square feet built", note: "Placeholder metric" },
-  { value: "XX", label: "Categories of work", note: "Placeholder metric" },
-] as const;
+export interface ExperienceMetric {
+  value: string;
+  label: string;
+  detail: string;
+}
+
+export const experienceMetrics: ExperienceMetric[] = [
+  {
+    value: "100+",
+    label: "Projects Delivered",
+    detail: "Construction experience built across completed projects.",
+  },
+  {
+    value: "1,00,000+",
+    label: "Sq. Ft. Built",
+    detail: "Built area delivered through disciplined construction execution.",
+  },
+  {
+    value: "10+",
+    label: "Categories of Work",
+    detail: "Diverse construction capabilities serving different project requirements.",
+  },
+];
 
 export const approachPoints = [
   { title: "Plan before pouring", text: "Drawings, sequence and materials are settled before work reaches the site." },

@@ -1,37 +1,28 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { testimonials } from "@/content/testimonials";
+import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
 
 export function TrustSection() {
-  // If verified content is unavailable, omit the testimonial section from the production release.
   if (!testimonials || testimonials.length === 0) {
     return null;
   }
 
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal border-b border-warm/10">
+    <section className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10 overflow-hidden">
       <div className="container-x">
         <SectionHeading
-          title="Built on Relationships."
+          eyebrow="CLIENT PERSPECTIVES"
+          title="What People Tell About Us."
         >
-          <p>Verified endorsements from clients and project stakeholders.</p>
+          <p>
+            Genuine reflections from homeowners, industrial facility managers, and institutional
+            partners built through decades of civil construction and architectural coordination
+            across Coimbatore, Chennai, and Bangalore.
+          </p>
         </SectionHeading>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((item, idx) => (
-            <div
-              key={idx}
-              data-reveal
-              className="border border-warm/15 bg-charcoal-2 p-8 flex flex-col justify-between"
-            >
-              <blockquote className="text-sm text-warm/80 leading-relaxed italic">
-                &ldquo;{item.quote}&rdquo;
-              </blockquote>
-              <div className="mt-6 pt-4 border-t border-warm/10">
-                <p className="font-semibold text-warm text-sm">{item.name}</p>
-                <p className="text-xs text-concrete">{item.role}</p>
-              </div>
-            </div>
-          ))}
+        <div className="mt-14" data-reveal>
+          <TestimonialCarousel />
         </div>
       </div>
     </section>

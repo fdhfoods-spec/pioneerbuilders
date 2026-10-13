@@ -33,7 +33,7 @@ export const projects: Project[] = [
     name: "Sample Apartment Tower",
     category: "apartments",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Structure", "Finishing", "Services coordination"],
     summary: "Placeholder record for a multi-storey apartment project.",
     description:
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     name: "Sample Hospital Block",
     category: "hospitals",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Structure", "Services coordination", "Phased handover"],
     summary: "Placeholder record for a healthcare building.",
     description:
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     name: "Sample Villa Residence",
     category: "villas",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Custom residence", "Detailed finishing"],
     summary: "Placeholder record for an individual villa.",
     description:
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     name: "Sample Group Housing Community",
     category: "group-housing",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Multi-block construction", "Phased delivery"],
     summary: "Placeholder record for a multi-building housing project.",
     description:
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     name: "Sample Industrial Facility",
     category: "industrial",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Industrial shed", "Foundations and flooring"],
     summary: "Placeholder record for an industrial building.",
     description:
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     name: "Sample Public Building",
     category: "public",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Institutional building", "Public-use facilities"],
     summary: "Placeholder record for a public project.",
     description:
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     name: "Sample Residential Building",
     category: "residential",
     location: "Location to be confirmed",
-    year: "20XX",
+    year: "2023",
     scope: ["Structure", "Finishing"],
     summary: "Placeholder record for a residential building.",
     description:

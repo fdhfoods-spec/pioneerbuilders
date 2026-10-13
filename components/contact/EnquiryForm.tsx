@@ -34,9 +34,21 @@ export function EnquiryForm() {
   });
 
   const onSubmit = (data: FormValues) => {
-    // As per static deployment specifications: Do not fabricate a backend success state.
-    // Present the structured enquiry payload and provide direct mailto / WhatsApp generation.
     setSubmittedData(data);
+    const message =
+      `*Pioneer Builders Project Enquiry*\n\n` +
+      `*Client:* ${data.name}\n` +
+      `*Phone:* ${data.phone}\n` +
+      `*Email:* ${data.email}\n` +
+      `*Category:* ${data.projectType}\n` +
+      `*Location:* ${data.location}\n` +
+      (data.budget ? `*Budget:* ${data.budget}\n` : "") +
+      `\n*Project Brief:*\n${data.message}`;
+
+    const url = whatsappHref(message);
+    if (url && typeof window !== "undefined") {
+      window.open(url, "_blank");
+    }
   };
 
   const handleReset = () => {
@@ -51,23 +63,28 @@ export function EnquiryForm() {
           <h2 className="display-h3 text-warm">Project Enquiry Form</h2>
           <p className="text-xs text-concrete mt-1">Submit your civil construction requirements</p>
         </div>
-        <PlaceholderTag>UI Prototype</PlaceholderTag>
+        <span className="inline-flex items-center gap-1.5 border border-[#44d62c]/40 bg-[#44d62c]/15 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[#44d62c]">
+          <span className="size-1.5 rounded-full bg-[#44d62c]" />
+          Direct WhatsApp
+        </span>
       </div>
 
-      <div className="mb-8 p-4 border-l-4 border-l-cherry border-y border-r border-warm/15 bg-charcoal text-xs text-warm/80 leading-relaxed">
-        <strong className="text-cherry-accent uppercase tracking-wider block mb-1">Static Deployment Notice</strong>
-        This static frontend does not transmit personal data to an unverified database. Filling this form
-        generates an instant, formatted email or WhatsApp message directly to our team.
+      <div className="mb-8 p-4 border-l-4 border-l-[#44d62c] border-y border-r border-warm/15 bg-charcoal text-xs text-warm/80 leading-relaxed">
+        <strong className="text-[#44d62c] uppercase tracking-wider block mb-1">
+          Direct WhatsApp Enquiry
+        </strong>
+        Submitting this form prepares your project requirements and directly opens WhatsApp to our team at{" "}
+        <strong className="text-warm font-semibold">+91 99168 00685</strong> for prompt consultation.
       </div>
 
       {submittedData ? (
         <div className="space-y-6 bg-charcoal p-6 border border-warm/20">
-          <div className="border-l-2 border-gold pl-4">
+          <div className="border-l-2 border-[#44d62c] pl-4">
             <h3 className="text-sm font-semibold text-warm uppercase tracking-wider">
-              Enquiry Prepared for Transmission
+              Enquiry Redirecting to WhatsApp (+91 99168 00685)
             </h3>
             <p className="text-xs text-concrete mt-1">
-              Click below to send via your preferred contact channel:
+              If WhatsApp did not open automatically in a new tab, click the button below:
             </p>
           </div>
 
@@ -81,36 +98,41 @@ export function EnquiryForm() {
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2">
+            <a
+              href={whatsappHref(
+                `*Pioneer Builders Project Enquiry*\n\n` +
+                `*Client:* ${submittedData.name}\n` +
+                `*Phone:* ${submittedData.phone}\n` +
+                `*Email:* ${submittedData.email}\n` +
+                `*Category:* ${submittedData.projectType}\n` +
+                `*Location:* ${submittedData.location}\n` +
+                (submittedData.budget ? `*Budget:* ${submittedData.budget}\n` : "") +
+                `\n*Project Brief:*\n${submittedData.message}`
+              ) ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3 bg-[#44d62c] text-[#111311] border border-[#44d62c] font-bold text-xs uppercase tracking-wider hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] transition-colors flex items-center justify-center gap-2 shadow-sm"
+            >
+              <span className="size-2 rounded-full bg-[#111311]" aria-hidden />
+              Open WhatsApp (+91 99168 00685)
+            </a>
+
             {hasEmail && (
               <a
                 href={mailHref(
                   `Project Enquiry: ${submittedData.projectType} in ${submittedData.location}`,
                   `Name: ${submittedData.name}\nPhone: ${submittedData.phone}\nEmail: ${submittedData.email}\nProject Type: ${submittedData.projectType}\nLocation: ${submittedData.location}\nBudget: ${submittedData.budget || "Not specified"}\n\nMessage:\n${submittedData.message}`
                 ) ?? "#"}
-                className="w-full sm:w-auto px-6 py-3 bg-[#111311] text-[#f5f2eb] border border-[#111311] font-semibold text-xs uppercase tracking-wider hover:bg-gold hover:text-white dark:bg-gold dark:text-[#111311] dark:border-gold dark:hover:bg-[#f5f2eb] dark:hover:text-[#111311] transition-colors text-center"
+                className="w-full sm:w-auto px-6 py-3 border border-warm/25 text-warm font-semibold text-xs uppercase tracking-wider hover:border-warm/50 hover:text-gold transition-colors text-center"
               >
                 Send via Email
-              </a>
-            )}
-
-            {hasWhatsapp && (
-              <a
-                href={whatsappHref(
-                  `*Pioneer Builders Project Enquiry*\nName: ${submittedData.name}\nPhone: ${submittedData.phone}\nType: ${submittedData.projectType}\nLocation: ${submittedData.location}\nMessage: ${submittedData.message}`
-                ) ?? "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 bg-forest text-warm border border-forest font-semibold text-xs uppercase tracking-wider hover:bg-forest/90 transition-colors flex items-center justify-center gap-2"
-              >
-                <span className="size-2 rounded-full bg-[#52c295]" aria-hidden />
-                Send via WhatsApp
               </a>
             )}
 
             <button
               type="button"
               onClick={handleReset}
-              className="w-full sm:w-auto px-4 py-3 text-xs text-concrete uppercase tracking-wider hover:text-warm transition-colors cursor-pointer text-center border border-warm/15"
+              className="w-full sm:w-auto px-4 py-3 text-xs uppercase tracking-wider font-semibold border border-warm/20 bg-charcoal text-warm/80 hover:text-warm hover:border-warm/40 transition-colors cursor-pointer text-center"
             >
               Modify Enquiry
             </button>
@@ -149,7 +171,7 @@ export function EnquiryForm() {
                 aria-invalid={errors.phone ? "true" : "false"}
                 aria-describedby={errors.phone ? "phone-error" : undefined}
                 className="w-full bg-charcoal border border-warm/20 px-4 py-3 text-sm text-warm placeholder-warm/40 focus:border-gold focus:outline-none"
-                placeholder="+91 98XXXXXXXX"
+                placeholder="+91 98765 43210"
               />
               {errors.phone && (
                 <p id="phone-error" className="text-xs text-cherry-accent font-medium mt-1.5">{errors.phone.message}</p>
@@ -258,9 +280,10 @@ export function EnquiryForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto px-8 py-4 bg-[#111311] text-[#f5f2eb] border border-[#111311] font-semibold text-xs uppercase tracking-widest hover:bg-gold hover:text-white dark:bg-gold dark:text-[#111311] dark:border-gold dark:hover:bg-[#f5f2eb] dark:hover:text-[#111311] transition-colors cursor-pointer text-center"
+            className="w-full sm:w-auto px-8 py-4 bg-[#44d62c] text-[#111311] border border-[#44d62c] font-bold text-xs uppercase tracking-widest hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] transition-colors cursor-pointer text-center shadow-sm disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            Review &amp; Prepare Enquiry
+            <span className="size-2 rounded-full bg-[#111311]" aria-hidden />
+            Send Enquiry via WhatsApp (+91 99168 00685)
           </button>
         </form>
       )}
