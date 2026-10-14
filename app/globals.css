@@ -252,3 +252,21 @@ html.light [data-hero-layer="crane"] {
   }
 }
 
+/* Red beacon glow blink animation for Logo "Since 1987" dot */
+@keyframes red-glow-blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 6px 1.5px #ef4444, 0 0 12px 3px rgba(239, 68, 68, 0.6);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+    box-shadow: 0 0 2px 0px rgba(239, 68, 68, 0.2);
+  }
+}
+
+.animate-glow-blink {
+  animation: red-glow-blink 1.8s ease-in-out infinite;
+}
+

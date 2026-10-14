@@ -8,6 +8,7 @@ import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { company } from "@/content/company";
 import { services } from "@/content/services";
 import { mailHref, whatsappHref, hasEmail, hasWhatsapp } from "@/lib/contact";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -64,27 +65,32 @@ export function EnquiryForm() {
           <p className="text-xs text-concrete mt-1">Submit your civil construction requirements</p>
         </div>
         <span className="inline-flex items-center gap-1.5 border border-[#44d62c]/40 bg-[#44d62c]/15 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[#44d62c]">
-          <span className="size-1.5 rounded-full bg-[#44d62c]" />
-          Direct WhatsApp
+          <WhatsAppIcon className="size-3.5 shrink-0" />
+          WhatsApp Enquiry
         </span>
       </div>
 
       <div className="mb-8 p-4 border-l-4 border-l-[#44d62c] border-y border-r border-warm/15 bg-charcoal text-xs text-warm/80 leading-relaxed">
-        <strong className="text-[#44d62c] uppercase tracking-wider block mb-1">
-          Direct WhatsApp Enquiry
-        </strong>
-        Submitting this form prepares your project requirements and directly opens WhatsApp to our team at{" "}
-        <strong className="text-warm font-semibold">+91 99168 00685</strong> for prompt consultation.
+        <div className="flex items-center gap-2 mb-1">
+          <WhatsAppIcon className="size-3.5 text-[#44d62c] shrink-0" />
+          <strong className="text-[#44d62c] uppercase tracking-wider">
+            Direct WhatsApp Enquiry
+          </strong>
+        </div>
+        Submitting this form prepares your project requirements and directly opens WhatsApp for an immediate consultation with our engineering team.
       </div>
 
       {submittedData ? (
         <div className="space-y-6 bg-charcoal p-6 border border-warm/20">
           <div className="border-l-2 border-[#44d62c] pl-4">
-            <h3 className="text-sm font-semibold text-warm uppercase tracking-wider">
-              Enquiry Redirecting to WhatsApp (+91 99168 00685)
-            </h3>
+            <div className="flex items-center gap-2">
+              <WhatsAppIcon className="size-4 text-[#44d62c] shrink-0" />
+              <h3 className="text-sm font-semibold text-warm uppercase tracking-wider">
+                Enquiry Ready for WhatsApp
+              </h3>
+            </div>
             <p className="text-xs text-concrete mt-1">
-              If WhatsApp did not open automatically in a new tab, click the button below:
+              If WhatsApp did not open automatically, click the button below to continue:
             </p>
           </div>
 
@@ -113,8 +119,8 @@ export function EnquiryForm() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 py-3 bg-[#44d62c] text-[#111311] border border-[#44d62c] font-bold text-xs uppercase tracking-wider hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
-              <span className="size-2 rounded-full bg-[#111311]" aria-hidden />
-              Open WhatsApp (+91 99168 00685)
+              <WhatsAppIcon className="size-4 shrink-0" />
+              Open in WhatsApp
             </a>
 
             {hasEmail && (
@@ -282,8 +288,8 @@ export function EnquiryForm() {
             disabled={isSubmitting}
             className="w-full sm:w-auto px-8 py-4 bg-[#44d62c] text-[#111311] border border-[#44d62c] font-bold text-xs uppercase tracking-widest hover:bg-[#38be23] hover:border-[#38be23] hover:text-[#111311] dark:bg-[#44d62c] dark:text-[#111311] dark:border-[#44d62c] dark:hover:bg-[#38be23] dark:hover:border-[#38be23] dark:hover:text-[#111311] transition-colors cursor-pointer text-center shadow-sm disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            <span className="size-2 rounded-full bg-[#111311]" aria-hidden />
-            Send Enquiry via WhatsApp (+91 99168 00685)
+            <WhatsAppIcon className="size-4 shrink-0" />
+            Send Enquiry via WhatsApp
           </button>
         </form>
       )}

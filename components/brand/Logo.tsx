@@ -65,7 +65,10 @@ export function Logo({ className, tone = "auto", markOnly = false }: LogoProps):
             Pioneer Builders
           </span>
           <span className="mt-0.5 sm:mt-1 flex items-center text-[0.58rem] sm:text-[0.62rem] font-semibold uppercase tracking-[0.22em] sm:tracking-[0.34em] text-gold whitespace-nowrap">
-            <span className="inline-block size-1.5 rounded-full bg-cherry mr-1.5 shrink-0" aria-hidden />
+            <span className="relative flex size-2 items-center justify-center mr-1.5 shrink-0" aria-hidden="true">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-red-500/70 opacity-75" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-[#ef4444] animate-glow-blink" />
+            </span>
             Since 1987
           </span>
         </span>

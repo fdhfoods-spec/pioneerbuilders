@@ -6,7 +6,7 @@ export function LeadershipSection() {
   const { leadership } = company;
 
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10">
+    <section id="founder" className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10">
       <div className="container-x">
         <div className="grid gap-14 lg:grid-cols-12 lg:items-center">
           {/* Portrait of P.T. Selvakumar */}

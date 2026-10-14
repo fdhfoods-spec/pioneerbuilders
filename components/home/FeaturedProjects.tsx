@@ -8,7 +8,7 @@ import { featuredProjects } from "@/content/projects";
 
 export function FeaturedProjects() {
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10">
+    <section id="projects" className="relative py-24 lg:py-32 bg-charcoal border-b border-warm/10">
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <SectionHeading
