@@ -3,9 +3,9 @@ import { company, companyTimeline } from "@/content/company";
 
 export function HeritageSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal border-b border-warm/10">
+    <section className="relative py-14 sm:py-16 lg:py-20 bg-charcoal border-b border-warm/10">
       <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center mb-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center mb-10 sm:mb-12">
           <div className="lg:col-span-7">
             <SectionHeading
               eyebrow="OUR JOURNEY"

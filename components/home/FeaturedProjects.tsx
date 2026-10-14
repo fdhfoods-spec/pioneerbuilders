@@ -8,9 +8,9 @@ import { featuredProjects } from "@/content/projects";
 
 export function FeaturedProjects() {
   return (
-    <section id="projects" className="relative py-24 lg:py-32 bg-charcoal border-b border-warm/10">
+    <section id="projects" className="relative py-14 sm:py-16 lg:py-20 bg-charcoal border-b border-warm/10">
       <div className="container-x">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <SectionHeading
             eyebrow="PORTFOLIO"
             title="Our Work Speaks Through the Structures We Build."

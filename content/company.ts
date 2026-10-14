@@ -44,9 +44,14 @@ export const company = {
   },
 
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? null,
-    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+91 99168 00685",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+91 99168 00685",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@pioneerbuilders.in",
+    phone: null,
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "919916800685",
+  },
+
+  social: {
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://www.instagram.com/pioneerbuilders/",
+    youtube: process.env.NEXT_PUBLIC_YOUTUBE ?? "https://www.youtube.com/@pioneerbuilders",
   },
 
   leadership: {

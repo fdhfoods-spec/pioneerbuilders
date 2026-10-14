@@ -8,7 +8,7 @@ export function TrustSection() {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10 overflow-hidden">
+    <section className="relative py-14 sm:py-16 lg:py-20 bg-charcoal-2 border-b border-warm/10 overflow-hidden">
       <div className="container-x">
         <SectionHeading
           eyebrow="CLIENT PERSPECTIVES"
@@ -21,7 +21,7 @@ export function TrustSection() {
           </p>
         </SectionHeading>
 
-        <div className="mt-14" data-reveal>
+        <div className="mt-10 sm:mt-12" data-reveal>
           <TestimonialCarousel />
         </div>
       </div>

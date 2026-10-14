@@ -4,15 +4,13 @@ import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { company } from "@/content/company";
 import { mainNav } from "@/content/navigation";
 import { services } from "@/content/services";
-import { hasEmail, hasPhone, hasWhatsapp, mailHref, telHref, whatsappHref } from "@/lib/contact";
+import { hasEmail, mailHref } from "@/lib/contact";
 
 const linkCls = "text-warm/70 transition-colors hover:text-gold";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   const mail = mailHref();
-  const tel = telHref();
-  const wa = whatsappHref();
 
   return (
     <footer className="border-t border-warm/10 bg-charcoal-2 text-warm">
@@ -78,8 +76,8 @@ export function SiteFooter() {
             <p className="text-concrete">{company.adminOffice.lines.join(", ")}</p>
           </div>
           <div>
-            <h2 className="eyebrow mb-4 font-sans text-gold">Contact</h2>
-            <ul className="space-y-2 text-warm/75">
+            <h2 className="eyebrow mb-4 font-sans text-gold">Connect</h2>
+            <ul className="space-y-2.5 text-warm/75">
               <li>
                 {hasEmail && mail ? (
                   <a href={mail} className={linkCls}>
@@ -90,23 +88,24 @@ export function SiteFooter() {
                 )}
               </li>
               <li>
-                {hasPhone && tel ? (
-                  <a href={tel} className={linkCls}>
-                    {company.contact.phone}
-                  </a>
-                ) : (
-                  <span className="text-concrete">Phone to be added</span>
-                )}
+                <a
+                  href={company.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkCls}
+                >
+                  Instagram
+                </a>
               </li>
               <li>
-                {hasWhatsapp && wa ? (
-                  <a href={wa} className="text-forest-accent hover:text-gold transition-colors flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
-                    <span className="size-1.5 rounded-full bg-forest" aria-hidden />
-                    WhatsApp ({company.contact.whatsapp})
-                  </a>
-                ) : (
-                  <span className="text-concrete">WhatsApp to be added</span>
-                )}
+                <a
+                  href={company.social.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkCls}
+                >
+                  YouTube
+                </a>
               </li>
             </ul>
           </div>

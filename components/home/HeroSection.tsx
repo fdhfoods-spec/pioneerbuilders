@@ -28,7 +28,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-charcoal pt-20 sm:pt-24 lg:pt-28"
+      className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-charcoal pt-[70px] sm:pt-[76px] lg:pt-[82px]"
     >
       {/* Layer 1: Background Atmospheric Sky Canvas */}
       <div
@@ -52,7 +52,7 @@ export function HeroSection() {
       {/* Layer 3: Main Architectural 2-Column Hero Grid */}
       <div
         data-hero-layer="content"
-        className="container-x relative z-10 my-auto py-10 lg:py-16"
+        className="container-x relative z-10 my-auto pt-4 pb-8 sm:pt-6 sm:pb-10 lg:py-6"
       >
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14 lg:items-center">
           {/* Left Column: Typography, Story, Metric Badges & CTAs */}

@@ -6,9 +6,9 @@ export function LeadershipSection() {
   const { leadership } = company;
 
   return (
-    <section id="founder" className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10">
+    <section id="founder" className="relative py-14 sm:py-16 lg:py-20 bg-charcoal-2 border-b border-warm/10">
       <div className="container-x">
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           {/* Portrait of P.T. Selvakumar */}
           <div className="lg:col-span-5">
             <div data-reveal className="relative aspect-[4/5] w-full max-w-md mx-auto border border-warm/15 bg-charcoal overflow-hidden shadow-2xl">
@@ -17,7 +17,7 @@ export function LeadershipSection() {
                 alt="P.T. Selvakumar — Founder, Pioneer Builders"
                 fill
                 sizes="(min-width: 1024px) 35vw, 85vw"
-                className="object-cover object-[center_20%]"
+                className="object-cover object-[center_15%]"
                 priority
               />
               <div className="absolute bottom-4 left-4 right-4 bg-charcoal/90 border border-warm/15 p-4 backdrop-blur-md">

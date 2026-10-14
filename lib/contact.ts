@@ -5,6 +5,8 @@ const digits = (v: string) => v.replace(/[^\d+]/g, "");
 export const hasEmail = Boolean(company.contact.email);
 export const hasPhone = Boolean(company.contact.phone);
 export const hasWhatsapp = Boolean(company.contact.whatsapp);
+export const hasInstagram = Boolean(company.social?.instagram);
+export const hasYoutube = Boolean(company.social?.youtube);
 
 export const mailHref = (subject?: string, body?: string) => {
   if (!company.contact.email) return null;
@@ -16,6 +18,9 @@ export const mailHref = (subject?: string, body?: string) => {
 };
 
 export const telHref = () => (company.contact.phone ? `tel:${digits(company.contact.phone)}` : null);
+
+export const instagramHref = () => company.social?.instagram ?? "https://www.instagram.com/pioneerbuilders/";
+export const youtubeHref = () => company.social?.youtube ?? "https://www.youtube.com/@pioneerbuilders";
 
 export const whatsappHref = (message?: string) => {
   if (!company.contact.whatsapp) return null;

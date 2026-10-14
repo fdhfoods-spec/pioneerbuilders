@@ -7,9 +7,9 @@ import { services } from "@/content/services";
 
 export function ServicesSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal border-b border-warm/10 overflow-hidden">
+    <section className="relative py-14 sm:py-16 lg:py-20 bg-charcoal border-b border-warm/10 overflow-hidden">
       <div className="container-x">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
           <SectionHeading
             eyebrow="CAPABILITIES & SERVICES"
             title="From Design to Delivery."

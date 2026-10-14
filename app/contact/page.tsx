@@ -2,7 +2,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { EnquiryForm } from "@/components/contact/EnquiryForm";
 import { company } from "@/content/company";
-import { hasEmail, hasPhone, hasWhatsapp, mailHref, telHref, whatsappHref } from "@/lib/contact";
+import { hasEmail, mailHref } from "@/lib/contact";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -14,8 +14,6 @@ export const metadata = pageMetadata({
 
 export default function ContactPage() {
   const mail = mailHref();
-  const tel = telHref();
-  const wa = whatsappHref();
 
   return (
     <div className="relative pt-[76px]">
@@ -102,31 +100,27 @@ export default function ContactPage() {
                   </li>
 
                   <li className="flex flex-col pt-3 border-t border-warm/10">
-                    <span className="text-xs uppercase tracking-wider text-concrete">Phone</span>
-                    {hasPhone && tel ? (
-                      <a href={tel} className="text-warm hover:text-gold font-semibold transition-colors mt-1">
-                        {company.contact.phone}
-                      </a>
-                    ) : (
-                      <span className="text-concrete mt-1">Telephone number to be configured</span>
-                    )}
+                    <span className="text-xs uppercase tracking-wider text-concrete">Instagram</span>
+                    <a
+                      href={company.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm hover:text-gold font-semibold transition-colors mt-1"
+                    >
+                      Follow @pioneerbuilders
+                    </a>
                   </li>
 
                   <li className="flex flex-col pt-3 border-t border-warm/10">
-                    <span className="text-xs uppercase tracking-wider text-concrete">WhatsApp</span>
-                    {hasWhatsapp && wa ? (
-                      <a
-                        href={wa}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-forest-accent hover:text-warm font-semibold transition-colors mt-1 flex items-center gap-1.5"
-                      >
-                        <span className="size-1.5 rounded-full bg-forest" aria-hidden />
-                        {company.contact.whatsapp} (WhatsApp)
-                      </a>
-                    ) : (
-                      <span className="text-concrete mt-1">WhatsApp number to be configured</span>
-                    )}
+                    <span className="text-xs uppercase tracking-wider text-concrete">YouTube</span>
+                    <a
+                      href={company.social.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm hover:text-gold font-semibold transition-colors mt-1"
+                    >
+                      Subscribe on YouTube
+                    </a>
                   </li>
                 </ul>
               </div>

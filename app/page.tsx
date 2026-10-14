@@ -3,10 +3,8 @@ import { LeadershipSection } from "@/components/home/LeadershipSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { HeritageSection } from "@/components/home/HeritageSection";
 import { ExperienceSection } from "@/components/home/ExperienceSection";
-import { BlueprintReveal } from "@/components/home/BlueprintReveal";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { ConstructionProcess } from "@/components/home/ConstructionProcess";
-import { ProjectGallery } from "@/components/home/ProjectGallery";
 import { TrustSection } from "@/components/home/TrustSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 
@@ -28,22 +26,16 @@ export default function HomePage() {
       {/* Section 5: Company Experience & Confirmed Metrics */}
       <ExperienceSection />
 
-      {/* Section 6: Signature Blueprint-to-Building Transition */}
-      <BlueprintReveal />
-
-      {/* Section 7: Services (Eight Building Disciplines) */}
+      {/* Section 6: Services (Eight Building Disciplines) */}
       <ServicesSection />
 
-      {/* Section 8: Construction Process (6-Stage Methodology) */}
+      {/* Section 7: Construction Process (6-Stage Methodology) */}
       <ConstructionProcess />
 
-      {/* Section 9: Architectural Project Gallery */}
-      <ProjectGallery />
-
-      {/* Section 10: Client Perspectives & Testimonials */}
+      {/* Section 8: Client Perspectives & Testimonials */}
       <TrustSection />
 
-      {/* Section 11: Final Engagement CTA */}
+      {/* Section 9: Final Engagement CTA */}
       <FinalCtaSection />
     </div>
   );

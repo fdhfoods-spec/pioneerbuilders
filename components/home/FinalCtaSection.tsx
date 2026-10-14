@@ -1,17 +1,17 @@
-import { ButtonLink, DisabledButton } from "@/components/ui/ButtonLink";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { company } from "@/content/company";
-import { hasWhatsapp, whatsappHref } from "@/lib/contact";
+import { hasEmail, mailHref } from "@/lib/contact";
 
 export function FinalCtaSection() {
-  const wa = whatsappHref("Hello Pioneer Builders, I would like to discuss a construction project.");
+  const mail = mailHref("Civil Construction Enquiry - Pioneer Builders", "Hello Pioneer Builders team,\n\nI would like to discuss a construction project.\n");
 
   return (
-    <section className="relative py-28 lg:py-36 bg-charcoal-2 border-t border-warm/15">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-charcoal-2 border-t border-warm/15">
       <div className="container-x">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <p
             data-reveal
-            className="eyebrow text-gold mb-6 flex items-center justify-center gap-3"
+            className="eyebrow text-gold mb-5 flex items-center justify-center gap-3"
           >
             <span aria-hidden className="h-px w-8 bg-gold" />
             Project Engagement
@@ -31,7 +31,7 @@ export function FinalCtaSection() {
           <p
             data-reveal
             data-delay={0.16}
-            className="mt-6 max-w-xl text-base sm:text-lg text-warm/75 font-sans leading-relaxed"
+            className="mt-5 max-w-xl text-base sm:text-lg text-warm/75 font-sans leading-relaxed"
           >
             Tell us about your construction requirements and connect with our team.
           </p>
@@ -39,27 +39,27 @@ export function FinalCtaSection() {
           <div
             data-reveal
             data-delay={0.24}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
+            className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
           >
             <ButtonLink href="/contact/" variant="primary">
               Send an Enquiry
             </ButtonLink>
 
-            {hasWhatsapp && wa ? (
-              <ButtonLink href={wa} variant="outline" external>
-                WhatsApp Us
+            {hasEmail && mail ? (
+              <ButtonLink href={mail} variant="outline">
+                Email Our Team
               </ButtonLink>
             ) : (
-              <DisabledButton reason="WhatsApp number to be configured" className="border-warm/25">
-                WhatsApp Us
-              </DisabledButton>
+              <ButtonLink href={company.social.instagram} variant="outline" external>
+                Follow on Instagram
+              </ButtonLink>
             )}
           </div>
 
           <p
             data-reveal
             data-delay={0.32}
-            className="mt-12 text-xs text-concrete uppercase tracking-widest"
+            className="mt-10 text-xs text-concrete uppercase tracking-widest"
           >
             {company.name} • Electronic City Phase 1, Bangalore • Est. {company.established}
           </p>

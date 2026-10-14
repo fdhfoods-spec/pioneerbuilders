@@ -253,6 +253,34 @@ export function SiteHeader() {
               <ThemeToggle showLabel />
             </div>
 
+            {/* Quick Connect (Instagram, Email, YouTube) */}
+            <div className="flex items-center justify-around border border-warm/15 bg-charcoal-2 px-3 py-2.5 text-xs text-warm/80">
+              <a
+                href={company.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors font-medium"
+              >
+                Instagram
+              </a>
+              <span className="text-warm/25">•</span>
+              <a
+                href={`mailto:${company.contact.email}`}
+                className="hover:text-gold transition-colors font-medium"
+              >
+                Email
+              </a>
+              <span className="text-warm/25">•</span>
+              <a
+                href={company.social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors font-medium"
+              >
+                YouTube
+              </a>
+            </div>
+
             {/* Full-width CTA */}
             <ButtonLink
               href={enquiryCta.href}

@@ -4,9 +4,9 @@ import { experienceMetrics, approachPoints } from "@/content/process";
 
 export function ExperienceSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-charcoal-2 border-b border-warm/10">
+    <section className="relative py-14 sm:py-16 lg:py-20 bg-charcoal-2 border-b border-warm/10">
       <div className="container-x">
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           {/* Architectural Image */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <ParallaxImage

@@ -114,11 +114,6 @@ export function TestimonialCarousel() {
       aria-roledescription="carousel"
       aria-label="Client Testimonials Carousel"
     >
-      {/* Ambient background glow */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[85%] max-w-4xl h-72 bg-gradient-to-r from-gold/15 via-forest/20 to-parrot/15 blur-3xl pointer-events-none rounded-full opacity-40 dark:opacity-25"
-      />
 
       {/* Multi-Card Carousel Track Container */}
       <div className="relative overflow-hidden p-1 sm:p-2 -mx-2 sm:-mx-3">
