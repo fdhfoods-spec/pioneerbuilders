@@ -36,11 +36,23 @@ export const company = {
     country: "IN",
   },
 
-  /** Handwritten address is awaiting verification. */
-  adminOffice: {
-    label: "Admin Office",
-    lines: ["Address to be confirmed"] as string[],
-    verified: false,
+  branchOffice: {
+    label: "Branch Office",
+    lines: [
+      "HM Peach, Apt No: 702",
+      "HM World City, Phase 3",
+      "North JP Nagar, Bangalore – 560108",
+    ],
+    street: "HM Peach, Apt No: 702, HM World City, Phase 3, North JP Nagar",
+    locality: "North JP Nagar, Bangalore",
+    postalCode: "560108",
+    country: "IN",
+    verified: true,
+  },
+
+  /** Alias for backward compatibility */
+  get adminOffice() {
+    return this.branchOffice;
   },
 
   contact: {
@@ -50,7 +62,8 @@ export const company = {
   },
 
   social: {
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://www.instagram.com/pioneerbuilders/",
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://www.instagram.com/pioneerbuilders_pts/",
+    instagramHandle: "pioneerbuilders_pts",
     youtube: process.env.NEXT_PUBLIC_YOUTUBE ?? "https://www.youtube.com/@pioneerbuilders",
   },
 
@@ -58,7 +71,7 @@ export const company = {
     name: "P.T. Selvakumar",
     role: "Founder",
     designation: "Founder",
-    qualification: "B.Tech, Civil Engineering",
+    qualification: "B.Tech civil., FIIV",
     portrait: "/images/leadership/pt-selvakumar.jpg",
     portraitAlt: "P.T. Selvakumar — Founder, Pioneer Builders",
     verified: true,

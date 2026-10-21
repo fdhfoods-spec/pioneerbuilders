@@ -27,25 +27,10 @@ export function FeaturedProjects() {
           </div>
         </div>
 
-        {/* Varied Proportion Editorial Layout */}
-        <div className="grid gap-8 lg:grid-cols-12">
+        {/* Balanced Architectural Project Grid */}
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
           {featuredProjects.slice(0, 4).map((project, idx) => {
-            // Asymmetric layout cadence: project 0 is wide 7-col, project 1 is 5-col; project 2 is 5-col, project 3 is 7-col
-            const colSpan =
-              idx === 0
-                ? "lg:col-span-7"
-                : idx === 1
-                ? "lg:col-span-5"
-                : idx === 2
-                ? "lg:col-span-5"
-                : "lg:col-span-7";
-
-            const aspectClass =
-              project.aspect === "portrait"
-                ? "aspect-[3/4]"
-                : project.aspect === "square"
-                ? "aspect-square"
-                : "aspect-[16/10]";
+            const aspectClass = "aspect-[16/10]";
 
             const isArch = project.category.toLowerCase().includes("architectural");
             const isHealthcare = project.category.toLowerCase().includes("hospital") || project.category.toLowerCase().includes("public");
@@ -77,7 +62,7 @@ export function FeaturedProjects() {
                 key={project.slug}
                 data-reveal
                 data-delay={idx * 0.08}
-                className={`group flex flex-col justify-between border border-warm/15 bg-charcoal p-6 sm:p-8 hover:border-gold/50 transition-colors ${colSpan}`}
+                className="group flex flex-col justify-between border border-warm/15 bg-charcoal p-6 sm:p-7 hover:border-gold/50 transition-colors"
               >
                 <div>
                   {/* Top Metadata Strip */}

@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { ArrowRight, Mail, RotateCcw } from "lucide-react";
+import { ArrowRight, Mail, RotateCcw, Loader2 } from "lucide-react";
 import { company } from "@/content/company";
 import { services } from "@/content/services";
 import { mailHref, hasEmail } from "@/lib/contact";
 import { InstagramIcon, YouTubeIcon } from "@/components/ui/SocialIcons";
+import { submitEnquiryToSupabase } from "@/lib/supabase";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -24,6 +25,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function EnquiryForm() {
   const [submittedData, setSubmittedData] = useState<FormValues | null>(null);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   const {
     register,
@@ -34,12 +36,23 @@ export function EnquiryForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: FormValues) => {
-    setSubmittedData(data);
+  const onSubmit = async (data: FormValues) => {
+    setSubmissionError(null);
+    try {
+      const res = await submitEnquiryToSupabase(data);
+      if (!res.success) {
+        setSubmissionError(res.error || "Failed to save enquiry. Please try again.");
+        return;
+      }
+      setSubmittedData(data);
+    } catch {
+      setSubmissionError("Network error while connecting to the database. Please try again.");
+    }
   };
 
   const handleReset = () => {
     setSubmittedData(null);
+    setSubmissionError(null);
     reset();
   };
 
@@ -110,9 +123,13 @@ export function EnquiryForm() {
 
             {/* Summary Docket */}
             <div className="w-full max-w-xl mt-8 text-left text-xs text-warm/85 font-mono bg-charcoal-2 p-5 border border-warm/15 space-y-2">
-              <div className="flex items-center justify-between border-b border-warm/10 pb-2 mb-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-warm/10 pb-2 mb-3">
                 <span className="text-gold font-bold uppercase tracking-wider">Project Docket</span>
-                <span className="text-concrete">Ref: PB-{Math.floor(100000 + Math.random() * 900000)}</span>
+                <span className="inline-flex items-center gap-1.5 border border-[#44d62c]/40 bg-[#44d62c]/10 px-2 py-0.5 text-[0.62rem] font-bold uppercase tracking-wider text-[#44d62c]">
+                  <span className="size-1.5 rounded-full bg-[#44d62c]" />
+                  Saved to Supabase
+                </span>
+                <span className="text-concrete text-[0.65rem]">Ref: PB-{Math.floor(100000 + Math.random() * 900000)}</span>
               </div>
               <p><strong>Category:</strong> {submittedData.projectType}</p>
               <p><strong>Location:</strong> {submittedData.location}</p>
@@ -144,7 +161,7 @@ export function EnquiryForm() {
                 className="w-full sm:w-auto px-6 py-3 border border-warm/25 text-warm font-semibold text-xs uppercase tracking-wider hover:border-gold hover:text-gold transition-colors flex items-center justify-center gap-2"
               >
                 <InstagramIcon className="size-4 shrink-0" />
-                Instagram
+                Instagram (@{company.social.instagramHandle})
               </a>
 
               <a
@@ -307,13 +324,29 @@ export function EnquiryForm() {
             )}
           </div>
 
+          {submissionError && (
+            <div className="p-3.5 border border-cherry-accent/40 bg-cherry-accent/10 text-cherry-accent text-xs leading-relaxed font-sans flex items-start gap-2">
+              <span className="font-bold">Error:</span>
+              <span>{submissionError}</span>
+            </div>
+          )}
+
           <button
             type="submit"
             disabled={isSubmitting}
             className="w-full sm:w-auto px-8 py-4 bg-[#44d62c] text-[#111311] border border-[#44d62c] font-bold text-xs uppercase tracking-widest hover:bg-[#38be23] hover:border-[#38be23] transition-colors cursor-pointer text-center shadow-sm disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            Submit Project Enquiry
-            <ArrowRight className="size-4" />
+            {isSubmitting ? (
+              <>
+                <Loader2 className="size-4 animate-spin" />
+                Saving to Database...
+              </>
+            ) : (
+              <>
+                Submit Project Enquiry
+                <ArrowRight className="size-4" />
+              </>
+            )}
           </button>
         </form>
       )}

@@ -19,7 +19,7 @@ export const mailHref = (subject?: string, body?: string) => {
 
 export const telHref = () => (company.contact.phone ? `tel:${digits(company.contact.phone)}` : null);
 
-export const instagramHref = () => company.social?.instagram ?? "https://www.instagram.com/pioneerbuilders/";
+export const instagramHref = () => company.social?.instagram ?? "https://www.instagram.com/pioneerbuilders_pts/";
 export const youtubeHref = () => company.social?.youtube ?? "https://www.youtube.com/@pioneerbuilders";
 
 export const whatsappHref = (message?: string) => {

@@ -5,6 +5,7 @@ import { company } from "@/content/company";
 import { mainNav } from "@/content/navigation";
 import { services } from "@/content/services";
 import { hasEmail, mailHref } from "@/lib/contact";
+import { InstagramIcon, YouTubeIcon, WhatsAppIcon, EmailIcon } from "@/components/ui/SocialIcons";
 
 const linkCls = "text-warm/70 transition-colors hover:text-gold";
 
@@ -72,19 +73,29 @@ export function SiteFooter() {
             </address>
           </div>
           <div>
-            <h2 className="eyebrow mb-4 font-sans text-gold">{company.adminOffice.label}</h2>
-            <p className="text-concrete">{company.adminOffice.lines.join(", ")}</p>
+            <h2 className="eyebrow mb-4 font-sans text-gold">{company.branchOffice.label}</h2>
+            <address className="not-italic leading-relaxed text-warm/70">
+              {company.branchOffice.lines.map((l) => (
+                <span key={l} className="block">
+                  {l}
+                </span>
+              ))}
+            </address>
           </div>
           <div>
             <h2 className="eyebrow mb-4 font-sans text-gold">Connect</h2>
-            <ul className="space-y-2.5 text-warm/75">
+            <ul className="space-y-3 text-sm text-warm/75">
               <li>
                 {hasEmail && mail ? (
-                  <a href={mail} className={linkCls}>
-                    {company.contact.email}
+                  <a href={mail} className="group inline-flex items-center gap-2.5 transition-colors hover:text-gold">
+                    <EmailIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                    <span>{company.contact.email}</span>
                   </a>
                 ) : (
-                  <span className="text-concrete">Email to be added</span>
+                  <span className="inline-flex items-center gap-2.5 text-concrete">
+                    <EmailIcon className="size-4 shrink-0 opacity-60" />
+                    <span>Email to be added</span>
+                  </span>
                 )}
               </li>
               <li>
@@ -92,9 +103,10 @@ export function SiteFooter() {
                   href={company.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkCls}
+                  className="group inline-flex items-center gap-2.5 transition-colors hover:text-gold"
                 >
-                  Instagram
+                  <InstagramIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                  <span>Instagram (@{company.social.instagramHandle})</span>
                 </a>
               </li>
               <li>
@@ -102,11 +114,25 @@ export function SiteFooter() {
                   href={company.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkCls}
+                  className="group inline-flex items-center gap-2.5 transition-colors hover:text-gold"
                 >
-                  YouTube
+                  <YouTubeIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                  <span>YouTube</span>
                 </a>
               </li>
+              {company.contact.whatsapp && (
+                <li>
+                  <a
+                    href={`https://wa.me/${company.contact.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 transition-colors hover:text-[#44d62c]"
+                  >
+                    <WhatsAppIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                    <span>WhatsApp Support</span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

@@ -174,10 +174,10 @@ export const featuredProjects = projects.filter((p) => p.featured);
 export const projectBySlug = (slug: string) => projects.find((p) => p.slug === slug);
 
 export const galleryImages: { src: string; alt: string; span: string }[] = [
-  { src: "/images/hero/hero-building.jpg", alt: "Signature contemporary civil engineering structure", span: "md:col-span-7 md:row-span-2" },
+  { src: "/images/hero/hero-building.jpg", alt: "Signature contemporary civil engineering structure", span: "md:col-span-7" },
   { src: `${C}/residential.jpg`, alt: "Multi-story residential complex facade", span: "md:col-span-5" },
-  { src: `${C}/industrial.jpg`, alt: "Industrial structural steel warehouse and logistics facility", span: "md:col-span-5" },
+  { src: `${C}/industrial.jpg`, alt: "Industrial structural steel warehouse and logistics facility", span: "md:col-span-4" },
   { src: `${C}/villas.jpg`, alt: "Luxury modern architectural villa residence", span: "md:col-span-4" },
   { src: `${C}/hospitals.jpg`, alt: "Modern healthcare center with curved glass facade", span: "md:col-span-4" },
-  { src: `${C}/public.jpg`, alt: "Grand public institutional building with concrete colonnade", span: "md:col-span-4" },
+  { src: `${C}/public.jpg`, alt: "Grand public institutional building with concrete colonnade", span: "md:col-span-12" },
 ];

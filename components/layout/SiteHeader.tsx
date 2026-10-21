@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { company } from "@/content/company";
 import { enquiryCta, mainNav } from "@/content/navigation";
+import { YouTubeIcon, EmailIcon } from "@/components/ui/SocialIcons";
 import { cn } from "@/lib/cn";
 
 const isActive = (pathname: string, href: string) =>
@@ -253,31 +254,23 @@ export function SiteHeader() {
               <ThemeToggle showLabel />
             </div>
 
-            {/* Quick Connect (Instagram, Email, YouTube) */}
-            <div className="flex items-center justify-around border border-warm/15 bg-charcoal-2 px-3 py-2.5 text-xs text-warm/80">
-              <a
-                href={company.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gold transition-colors font-medium"
-              >
-                Instagram
-              </a>
-              <span className="text-warm/25">•</span>
+            {/* Quick Connect (Email, YouTube) */}
+            <div className="grid grid-cols-2 gap-2 text-center text-xs text-warm/80">
               <a
                 href={`mailto:${company.contact.email}`}
-                className="hover:text-gold transition-colors font-medium"
+                className="group flex flex-col items-center gap-1.5 border border-warm/15 bg-charcoal-2 p-2.5 transition-all duration-200 hover:border-gold hover:text-gold"
               >
-                Email
+                <EmailIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                <span className="text-[0.68rem] font-medium font-sans">Email</span>
               </a>
-              <span className="text-warm/25">•</span>
               <a
                 href={company.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold transition-colors font-medium"
+                className="group flex flex-col items-center gap-1.5 border border-warm/15 bg-charcoal-2 p-2.5 transition-all duration-200 hover:border-gold hover:text-gold"
               >
-                YouTube
+                <YouTubeIcon className="size-4 shrink-0 transition-transform group-hover:scale-110" />
+                <span className="text-[0.68rem] font-medium font-sans">YouTube</span>
               </a>
             </div>
 

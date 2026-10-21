@@ -10,12 +10,7 @@ interface Props {
 }
 
 export function ProjectCard({ project, className = "" }: Props) {
-  const aspectClass =
-    project.aspect === "portrait"
-      ? "aspect-[3/4]"
-      : project.aspect === "square"
-      ? "aspect-square"
-      : "aspect-[16/10]";
+  const aspectClass = "aspect-[16/10]";
 
   const isArch = project.category.includes("architectural");
   const isHealthcare = project.category.includes("hospital") || project.category.includes("public");

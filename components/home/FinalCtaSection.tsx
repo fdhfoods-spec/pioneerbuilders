@@ -1,6 +1,7 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { company } from "@/content/company";
 import { hasEmail, mailHref } from "@/lib/contact";
+import { InstagramIcon, EmailIcon } from "@/components/ui/SocialIcons";
 
 export function FinalCtaSection() {
   const mail = mailHref("Civil Construction Enquiry - Pioneer Builders", "Hello Pioneer Builders team,\n\nI would like to discuss a construction project.\n");
@@ -45,15 +46,22 @@ export function FinalCtaSection() {
               Send an Enquiry
             </ButtonLink>
 
-            {hasEmail && mail ? (
-              <ButtonLink href={mail} variant="outline">
+            {hasEmail && mail && (
+              <ButtonLink href={mail} variant="outline" className="inline-flex items-center gap-2">
+                <EmailIcon className="size-4 shrink-0" />
                 Email Our Team
               </ButtonLink>
-            ) : (
-              <ButtonLink href={company.social.instagram} variant="outline" external>
-                Follow on Instagram
-              </ButtonLink>
             )}
+
+            <ButtonLink
+              href={company.social.instagram}
+              variant="outline"
+              external
+              className="inline-flex items-center gap-2"
+            >
+              <InstagramIcon className="size-4 shrink-0" />
+              Follow @{company.social.instagramHandle}
+            </ButtonLink>
           </div>
 
           <p
